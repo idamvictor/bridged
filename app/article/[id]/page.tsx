@@ -64,6 +64,7 @@
 //   );
 // }
 
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { articles } from "@/data/articles";
@@ -72,16 +73,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Sidebar } from "@/components/sidebar";
 import { Comments } from "@/components/comments";
 
-interface ArticlePageProps {
-  params: { id: string }; // `params` is now a prop
-}
-
-export default async function ArticlePage({ params }: ArticlePageProps) {
-  // Fetch or find the article based on `params.id`
-  const article = articles.find((a) => a.id === params.id);
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params; // Awaiting the params object
+  const article = articles.find((a) => a.id === id); // Finding the article using `id`
 
   if (!article) {
-    notFound(); // Render the 404 page if the article is not found
+    notFound();
   }
 
   return (
