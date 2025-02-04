@@ -47,14 +47,14 @@ export default function Header() {
       style={{ backgroundColor: "#e8f3f1" }}
     >
       <div className="flex items-center space-x-8">
-        <Link href="/health-pass" className="text-sm font-medium">
-          HealthPass
+        <Link href="/article" className="text-sm font-medium">
+          News
         </Link>
-        <Link href="/network" className="text-sm font-medium">
+        <Link href="/user" className="text-sm font-medium">
           Bridged Network
         </Link>
-        <Link href="/marketplace" className="text-sm font-medium">
-          Marketplace
+        <Link href="/map" className="text-sm font-medium">
+          Map
         </Link>
       </div>
 
