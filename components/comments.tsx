@@ -20,7 +20,9 @@ interface CommentsProps {
   articleId: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function Comments({ articleId }: CommentsProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [comments, setComments] = useState<Comment[]>([
     {
       id: "1",
