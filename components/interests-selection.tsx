@@ -15,13 +15,21 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 const interests = [
-  { id: "technology", label: "Technology" },
-  { id: "sports", label: "Sports" },
-  { id: "music", label: "Music" },
-  { id: "travel", label: "Travel" },
-  { id: "food", label: "Food" },
-  { id: "art", label: "Art" },
-  { id: "books", label: "Books" },
+  { id: "Healthy living", label: "Healthy living" },
+  { id: "Nutrition & Diet", label: "Nutrition & Diet" },
+  { id: "Mental Health Awareness", label: "Mental Health Awareness" },
+  { id: "Womens Health", label: "Womens Health" },
+  { id: "Pediatrics & Parenting", label: "Pediatrics & Parenting" },
+  { id: "Alternative Medicine", label: "Alternative Medicine" },
+  { id: "Disease Prevention", label: "Disease Prevention" },
+  { id: "Fitness & Exercise", label: "Fitness & Exercise" },
+  { id: "Public Health Advocacy", label: "Public Health Advocacy" },
+  { id: "Mindfulness & Meditation", label: "Mindfulness & Meditation" },
+  { id: "Stress Management", label: "Stress Management" },
+  { id: "Medical Research", label: "Medical Research" },
+  { id: "Weight Loss", label: "Weight Loss" },
+  { id: "Mental Resilience", label: "Mental Resilience" },
+  { id: "Technology", label: "Technology" },
 ];
 
 export function InterestsSelection() {
