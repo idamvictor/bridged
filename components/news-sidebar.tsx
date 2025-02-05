@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NewsSidebar() {
   const news = [
@@ -28,21 +29,23 @@ export default function NewsSidebar() {
       <h3 className="font-semibold mb-4">Latest News</h3>
       <div className="space-y-4">
         {news.map((item, i) => (
-          <div key={i} className="flex gap-3">
-            <Image
-              src={
-                "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/chair.png"
-              }
-              alt="Post image"
-              width={12}
-              height={12}
-              className="w-12 h-12 bg-gray-200 rounded-lg "
-            />
+          <div key={i}>
+            <Link href="/article/womens-health-matters" className="flex gap-3">
+              <Image
+                src={
+                  "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/chair.png"
+                }
+                alt="Post image"
+                width={12}
+                height={12}
+                className="w-12 h-12 bg-gray-200 rounded-lg "
+              />
 
-            <div>
-              <p className="text-sm">{item.title}</p>
-              <p className="text-xs text-gray-500 mt-1">{item.date}</p>
-            </div>
+              <div>
+                <p className="text-sm">{item.title}</p>
+                <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
