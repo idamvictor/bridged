@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export default function UserSidebar() {
   return (
-    <div className="bg-white rounded-lg border p-6">
+    <div className="bg-white rounded-lg border p-6 h-[520px]">
       <div className="flex flex-col items-center text-center">
         <Avatar className="mb-2 w-12 h-12">
           <AvatarImage src="https://github.com/shadcn.png" />

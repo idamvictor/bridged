@@ -10,7 +10,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <Card className="overflow-hidden h-full flex flex-col">
+    <Card className="overflow-hidden h-full flex flex-col bg-teal-50/50">
       <Link href={`/article/${article.id}`} className="flex flex-col h-full">
         <div className="relative aspect-[4/3]">
           <Image
