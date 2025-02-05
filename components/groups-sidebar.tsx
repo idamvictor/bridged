@@ -71,7 +71,7 @@ export default function GroupsSidebar() {
                     {group.members}
                   </span>
                   <Link
-                    href="/login"
+                    href="/register"
                     className="flex items-center gap-1 text-blue-500 hover:underline"
                   >
                     <Lock className="w-3 h-3" />
