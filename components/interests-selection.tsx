@@ -69,6 +69,7 @@ export function InterestsSelection() {
         <Button
           onClick={handleSubmit}
           disabled={selectedInterests.length === 0}
+          className="bg-teal-600 hover:bg-teal-700"
         >
           Continue to Dashboard
         </Button>

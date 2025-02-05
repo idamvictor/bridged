@@ -62,7 +62,7 @@ export function RegisterForm() {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
-        <Button onClick={handleSubmit}>Register</Button>
+        <Button onClick={handleSubmit} className="bg-teal-600">Register</Button>
       </CardFooter>
     </Card>
   );

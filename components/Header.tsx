@@ -50,7 +50,7 @@ export default function Header() {
         <Link href="/article" className="text-sm font-medium">
           News
         </Link>
-        <Link href="/user" className="text-sm font-medium">
+        <Link href="/groups" className="text-sm font-medium">
           Bridged Network
         </Link>
         <Link href="/map" className="text-sm font-medium">

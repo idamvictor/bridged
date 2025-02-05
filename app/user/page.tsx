@@ -3,6 +3,7 @@ import NewsSidebar from "@/components/news-sidebar";
 import SocialPost from "@/components/social-post";
 import SponsoredAd from "@/components/sponsored-ad";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import CreatePost from "@/components/create-post";
 
 export default function Page() {
   return (
@@ -12,21 +13,7 @@ export default function Page() {
 
         <div className="space-y-6">
           <div className="bg-white rounded-lg border p-4">
-            <div className="flex items-center gap-3">
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-
-              <input
-                type="text"
-                placeholder="Share your thoughts..."
-                className="flex-1 rounded-full border px-4 py-2 text-sm"
-              />
-              <button className="px-4 py-2 bg-teal-600 text-white rounded-full text-sm">
-                Publish
-              </button>
-            </div>
+                        <CreatePost />
           </div>
 
           <SponsoredAd />
@@ -55,7 +42,7 @@ export default function Page() {
             avatar="https://github.com/shadcn.png"
           />
 
-          <button className="w-full text-center py-4 text-blue-500 bg-white rounded-lg border">
+          <button className="w-full text-center py-4 text-purple-600 bg-white rounded-lg border">
             Load more posts
           </button>
         </div>

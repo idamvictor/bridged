@@ -45,7 +45,7 @@ export default function GroupsSidebar() {
     <div className="bg-white rounded-lg border p-4">
       <div className="flex items-center justify-between mb-6">
         <h2 className="font-semibold">Popular Groups</h2>
-        <Link href="/login" className="text-sm text-blue-500 hover:underline">
+        <Link href="/register" className="text-sm text-purple-600 hover:underline">
           View All
         </Link>
       </div>
@@ -72,7 +72,7 @@ export default function GroupsSidebar() {
                   </span>
                   <Link
                     href="/register"
-                    className="flex items-center gap-1 text-blue-500 hover:underline"
+                    className="flex items-center gap-1 text-purple-500 hover:underline"
                   >
                     <Lock className="w-3 h-3" />
                     Join Group
@@ -86,7 +86,7 @@ export default function GroupsSidebar() {
 
       <div className="mt-6 pt-6 border-t">
         <Link
-          href="/login"
+          href="/register"
           className="flex items-center justify-center gap-2 w-full bg-teal-600 text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-teal-700"
         >
           Sign in to Join Groups

@@ -26,7 +26,7 @@ export default function NewsSidebar() {
 
   return (
     <div className="bg-white rounded-lg border p-4">
-      <h3 className="font-semibold mb-4">Latest News</h3>
+      <h3 className="font-semibold mb-4">Your Latest News</h3>
       <div className="space-y-4">
         {news.map((item, i) => (
           <div key={i}>
@@ -49,9 +49,11 @@ export default function NewsSidebar() {
           </div>
         ))}
       </div>
-      <button className="text-blue-500 text-sm mt-4">
-        View all latest news
-      </button>
+      <Link href="/article" className="text-purple-600 text-sm mt-4">
+        <button className="text-purple-600 text-sm mt-4">
+          View all latest news
+        </button>
+      </Link>
     </div>
   );
 }
