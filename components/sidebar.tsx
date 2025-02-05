@@ -25,7 +25,7 @@ export function Sidebar() {
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
+              <Badge key={tag} variant="secondary" className="text-xs bg-teal-500 text-white">
                 {tag}
               </Badge>
             ))}

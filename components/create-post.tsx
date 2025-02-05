@@ -58,7 +58,7 @@ export default function CreatePost() {
             <span className="sr-only">More options</span>
           </Button>
         </div>
-        <Button className="px-6 bg-teal-600 hover:bg-teal-700">Publish</Button>
+        <Button className="px-6 bg-[#d42ca7] hover:bg-[#a5147e]">Publish</Button>
       </CardFooter>
     </Card>
   );

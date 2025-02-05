@@ -64,7 +64,11 @@ export function Comments({ articleId }: CommentsProps) {
         ))}
         <form className="space-y-4">
           <Textarea placeholder="Leave a comment..." />
-          <Button>Post comment</Button>
+          <Button
+            className="bg-[#d42ca7] hover:bg-[#a5147e]"
+          >
+            Post comment
+          </Button>
         </form>
       </CardContent>
     </Card>

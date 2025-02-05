@@ -56,7 +56,7 @@ export default function SponsoredAd() {
           We are healthcare, wellness, and medical professionals - we are here
           for you.
         </p>
-        <button className="bg-black text-white text-sm font-semibold px-4 py-2 rounded">
+        <button className="bg-[#d42ca7] hover:bg-[#a5147e] text-white text-sm font-semibold px-4 py-2 rounded">
           Learn More
         </button>
       </div>

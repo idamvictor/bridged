@@ -21,7 +21,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           />
         </div>
         <CardHeader className="flex-none">
-          <Badge variant="secondary" className="w-fit mb-2">
+          <Badge variant="secondary" className="w-fit mb-2 bg-teal-500 text-white">
             {article.category}
           </Badge>
           <h2 className="text-lg font-bold line-clamp-2">{article.title}</h2>

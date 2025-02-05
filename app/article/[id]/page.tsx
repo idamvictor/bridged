@@ -31,7 +31,7 @@ export default async function ArticlePage({
             />
           </div>
           <div className="space-y-4">
-            <Badge variant="secondary">{article.category}</Badge>
+            <Badge variant="secondary" className="bg-teal-500 text-white">{article.category}</Badge>
             <h1 className="text-4xl font-bold">{article.title}</h1>
             <div className="flex items-center gap-4">
               <Avatar>

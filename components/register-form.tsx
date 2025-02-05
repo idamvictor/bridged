@@ -62,7 +62,12 @@ export function RegisterForm() {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
-        <Button onClick={handleSubmit} className="bg-teal-600">Register</Button>
+        <Button
+          onClick={handleSubmit}
+          className="bg-[#d42ca7] hover:bg-[#a5147e]"
+        >
+          Register
+        </Button>
       </CardFooter>
     </Card>
   );
