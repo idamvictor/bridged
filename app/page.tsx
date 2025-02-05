@@ -36,7 +36,7 @@ export default function Page() {
     <div className="min-h-screen bg-gray-100">
 
 
-      <main className="max-w-6xl mx-auto grid grid-cols-[1fr_300px] gap-6 py-6 px-4">
+      <main className="max-w-6xl mx-auto grid md:grid-cols-[1fr_300px] gap-6 py-6 px-4">
         <div className="space-y-6">
           <div className="bg-white rounded-lg border p-6">
             <h1 className="text-2xl font-bold mb-2">Welcome to Bridged</h1>

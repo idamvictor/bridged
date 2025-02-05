@@ -42,7 +42,7 @@ const groups = [
 
 export default function GroupsSidebar() {
   return (
-    <div className="bg-white rounded-lg border p-4">
+    <div className="bg-white rounded-lg border p-4 mb-14">
       <div className="flex items-center justify-between mb-6">
         <h2 className="font-semibold">Popular Groups</h2>
         <Link href="/register" className="text-sm text-purple-600 hover:underline">
