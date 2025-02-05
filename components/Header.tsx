@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bell, ChevronDown, Search, User, } from "lucide-react";
+import { Bell, ChevronDown, Search, User } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -14,8 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import HeaderNav from "./header-nav";
-import { SidebarTrigger } from "./ui/sidebar";
-import { AppSidebar } from "./app-sidebar";
 
 const notifications = [
   {
@@ -46,16 +44,16 @@ export default function Header() {
 
   return (
     <nav
-      className="flex h-16 items-center justify-between px-4 container mx-auto"
+      className="flex h-16 items-center justify-between px-4"
       style={{ backgroundColor: "#e8f3f1" }}
     >
       <HeaderNav />
 
-      <Link href="/" className="">
+      <Link href="/" className="flex items-center mt-4">
         <Image
-          src="https://res.cloudinary.com/dyp8gtllq/image/upload/v1738676153/Green_vancouver-logo-green-RGB-cropped-2_guesfx.png"
+          src="/logo.png"
           alt="Bridged Logo"
-          width={120}
+          width={60}
           height={40}
           priority
         />
@@ -138,8 +136,7 @@ export default function Header() {
             <DropdownMenuItem>Sign out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <SidebarTrigger />
-        <AppSidebar />
+
       </div>
     </nav>
   );
