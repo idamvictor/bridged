@@ -58,7 +58,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <div className="absolute left-1/2 -translate-x-1/2">
+      <Link href='/' className="absolute left-1/2 -translate-x-1/2">
         <Image
           src="https://res.cloudinary.com/dyp8gtllq/image/upload/v1738676153/Green_vancouver-logo-green-RGB-cropped-2_guesfx.png"
           alt="Bridged Logo"
@@ -66,7 +66,7 @@ export default function Header() {
           height={40}
           priority
         />
-      </div>
+      </Link>
 
       <div className="flex items-center space-x-4">
         <div className="relative">
