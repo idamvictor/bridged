@@ -1,22 +1,25 @@
-import { notFound } from "next/navigation"
-import Image from "next/image"
-import { newsItems } from "@/data/news"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Sidebar } from "@/components/sidebar"
-import { Comments } from "@/components/comments"
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { newsItems } from "@/data/news";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Sidebar } from "@/components/sidebar";
+import { Comments } from "@/components/comments";
 
-interface NewsPageProps {
-  params: {
-    id: string
-  }
-}
+export default async function NewsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  // Await the resolution of the `params` promise to get the `id`
+  const { id } = await params;
 
-export default function NewsPage({ params }: NewsPageProps) {
-  const news = newsItems.find((item) => item.id === params.id)
+  // Find the news item based on the `id`
+  const news = newsItems.find((item) => item.id === id);
 
+  // If no news item is found, trigger the `notFound` function
   if (!news) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -24,7 +27,12 @@ export default function NewsPage({ params }: NewsPageProps) {
       <div className="grid lg:grid-cols-3 gap-8">
         <article className="lg:col-span-2 space-y-8">
           <div className="relative aspect-video">
-            <Image src={news.image || "/placeholder.svg"} alt={news.title} fill className="object-cover rounded-lg" />
+            <Image
+              src={news.image || "/placeholder.svg"}
+              alt={news.title}
+              fill
+              className="object-cover rounded-lg"
+            />
           </div>
           <div className="space-y-4">
             <Badge variant="default">{news.category}</Badge>
@@ -53,6 +61,5 @@ export default function NewsPage({ params }: NewsPageProps) {
         <Sidebar />
       </div>
     </div>
-  )
+  );
 }
-
