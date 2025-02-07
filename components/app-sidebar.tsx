@@ -69,7 +69,7 @@ export function AppSidebar() {
               </button>
             </Link>
 
-            <Link href="/article">
+            <Link href="/news">
               <button className="w-full text-left flex items-center gap-3 px-2 py-2 hover:bg-gray-50 rounded-lg">
                 <svg
                   className="w-5 h-5"

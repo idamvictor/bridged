@@ -1,47 +1,40 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Lock } from "lucide-react";
+import Image from "next/image";
+import type { NewsItem } from "@/data/news";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface NewsCardProps {
-  title: string;
-  excerpt: string;
-  image: string;
-  date: string;
-  readTime: string;
+  news: NewsItem;
 }
 
-export default function NewsCard({
-  title,
-  excerpt,
-  image,
-  date,
-  readTime,
-}: NewsCardProps) {
+export function NewsCard({ news }: NewsCardProps) {
   return (
-    <div className="bg-white rounded-lg border overflow-hidden">
-      <div className="relative h-48">
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-2 text-sm text-gray-500">
-          <span>{date}</span>
-          <span>{readTime} read</span>
+    <Card className="overflow-hidden h-full flex flex-col">
+      <Link href={`/news/${news.id}`} className="flex flex-col h-full">
+        <div className="relative aspect-[4/3]">
+          <Image
+            src={news.image || "/placeholder.svg"}
+            alt={news.title}
+            fill
+            className="object-cover"
+          />
         </div>
-        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-        <p className="text-gray-600 text-sm mb-4">{excerpt}</p>
-        <Link
-          href="/register"
-          className="inline-flex items-center gap-2 text-sm text-purple-600 hover:text-gray-700"
-        >
-          <Lock className="w-4 h-4" />
-          Sign in to read more
-        </Link>
-      </div>
-    </div>
+        <CardHeader className="flex-none">
+          <Badge variant="default" className="w-fit mb-2">
+            {news.category}
+          </Badge>
+          <h2 className="text-lg font-bold line-clamp-2">{news.title}</h2>
+        </CardHeader>
+        <CardContent className="flex-1 flex flex-col">
+          <p className="text-muted-foreground text-sm line-clamp-2 flex-1">
+            {news.excerpt}
+          </p>
+          <div className="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
+            <time dateTime={news.date}>{news.date}</time>
+          </div>
+        </CardContent>
+      </Link>
+    </Card>
   );
 }

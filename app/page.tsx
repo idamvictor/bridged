@@ -1,4 +1,4 @@
-import NewsCard from "@/components/news-card";
+import NewsCardHome from "@/components/news-card-home";
 import GroupsSidebar from "@/components/groups-sidebar";
 
 const newsArticles = [
@@ -34,8 +34,6 @@ const newsArticles = [
 export default function Page() {
   return (
     <div className="min-h-screen bg-gray-100">
-
-
       <main className="max-w-6xl mx-auto grid md:grid-cols-[1fr_300px] gap-6 py-6 px-4">
         <div className="space-y-6">
           <div className="bg-white rounded-lg border p-6">
@@ -49,7 +47,7 @@ export default function Page() {
 
           <div className="grid gap-6">
             {newsArticles.map((article, i) => (
-              <NewsCard key={i} {...article} />
+              <NewsCardHome key={i} {...article} />
             ))}
           </div>
         </div>

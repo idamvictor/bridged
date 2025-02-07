@@ -17,11 +17,12 @@ interface Comment {
 }
 
 interface CommentsProps {
-  articleId: string;
+  // articleId: string;
+  newsId: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function Comments({ articleId }: CommentsProps) {
+export function Comments({ newsId }: CommentsProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [comments, setComments] = useState<Comment[]>([
     {

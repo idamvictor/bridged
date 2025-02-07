@@ -30,7 +30,7 @@ export default function NewsSidebar() {
       <div className="space-y-4">
         {news.map((item, i) => (
           <div key={i}>
-            <Link href="/article/womens-health-matters" className="flex gap-3">
+            <Link href="/news/womens-health-matters" className="flex gap-3">
               <Image
                 src={
                   "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/chair.png"
@@ -49,7 +49,7 @@ export default function NewsSidebar() {
           </div>
         ))}
       </div>
-      <Link href="/article" className="text-purple-600 text-sm mt-4">
+      <Link href="/news" className="text-purple-600 text-sm mt-4">
         <button className="text-purple-600 text-sm mt-4">
           View all latest news
         </button>

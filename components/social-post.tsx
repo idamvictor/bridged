@@ -22,7 +22,7 @@ export default function SocialPost({
 }: PostProps) {
   return (
     <div className="bg-white rounded-lg border">
-      <Link href="/article/healthy-eating-budget">
+      <Link href="news/womens-health-matters">
         <div className="p-4">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">

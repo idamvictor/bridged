@@ -5,14 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 
-const tags = [
-  "Women's Health",
-  "Mental Health",
-  "Health Insurance",
-  "Vaccinations",
-  "Fitness & Wellbeing",
-  "Nutrition",
-  "Dental Care",
+const categories = [
+  "World",
+  "Politics",
+  "Business",
+  "Technology",
+  "Science",
+  "Health",
+  "Sports",
+  "Entertainment",
 ];
 
 export function Sidebar() {
@@ -20,13 +21,13 @@ export function Sidebar() {
     <div className="space-y-6 lg:sticky lg:top-4">
       <Card className="shadow-sm">
         <CardHeader className="pb-4">
-          <CardTitle className="text-lg">Tags</CardTitle>
+          <CardTitle className="text-lg">Categories</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs bg-teal-500 text-white">
-                {tag}
+            {categories.map((category) => (
+              <Badge key={category} variant="default" className="text-xs">
+                {category}
               </Badge>
             ))}
           </div>
@@ -35,7 +36,7 @@ export function Sidebar() {
 
       <Card className="shadow-sm">
         <CardHeader className="pb-4">
-          <CardTitle className="text-lg">Who to follow</CardTitle>
+          <CardTitle className="text-lg">Top Contributors</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {authors.map((author) => (

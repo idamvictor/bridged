@@ -11,7 +11,7 @@ interface ArticleCardProps {
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
     <Card className="overflow-hidden h-full flex flex-col bg-teal-50/50">
-      <Link href={`/article/${article.id}`} className="flex flex-col h-full">
+      <Link href={`/news/${article.id}`} className="flex flex-col h-full">
         <div className="relative aspect-[4/3]">
           <Image
             src={article.image || "/placeholder.svg"}
@@ -21,7 +21,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           />
         </div>
         <CardHeader className="flex-none">
-          <Badge variant="secondary" className="w-fit mb-2 bg-teal-500 text-white">
+          <Badge variant="default" className="w-fit mb-2 bg-teal-500 text-white">
             {article.category}
           </Badge>
           <h2 className="text-lg font-bold line-clamp-2">{article.title}</h2>
