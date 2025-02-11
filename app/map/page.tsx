@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface HealthCareFacility {
   id: string;
@@ -22,27 +23,35 @@ interface HealthCareFacility {
 const dummyResults: HealthCareFacility[] = [
   {
     id: "1",
-    name: "City General Hospital",
-    address: "123 Main St, New York, NY",
-    rating: 4.5,
-    phone: "(555) 123-4567",
+    name: "Halcyon Hospital",
+    address: "Office Suites, 7th Floor, Fifth Ngong Ave., Nairobi, Kenya",
+    rating: 4.9,
+    phone: "+254794264502",
     openNow: true,
   },
   {
     id: "2",
-    name: "Community Health Clinic",
-    address: "456 Elm St, New York, NY",
-    rating: 4.2,
-    phone: "(555) 234-5678",
+    name: "The Nairobi Hospital",
+    address: "Argwings Kodhek Road, Nairobi, Kenya",
+    rating: 3.4,
+    phone: "+254202845000",
     openNow: true,
   },
   {
     id: "3",
-    name: "Downtown Urgent Care",
-    address: "789 Oak St, New York, NY",
-    rating: 4.0,
-    phone: "(555) 345-6789",
+    name: "MP Shah Hospital",
+    address: "Shivaji Road, Nairobi, Kenya",
+    rating: 4.3,
+    phone: "+254111000600",
     openNow: false,
+  },
+  {
+    id: "4",
+    name: "Rayhaan Healthcare",
+    address: "Park Medical Centre, 3rd Parklands Ave., Nairobi, Kenya",
+    rating: 4.8,
+    phone: "+254111051530",
+    openNow: true,
   },
 ];
 
@@ -61,7 +70,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background mb-10">
       <div className="container mx-auto p-8">
         <div className="space-y-8">
           <div className="text-center space-y-4">
@@ -85,7 +94,15 @@ export default function Page() {
                 <h2 className="text-2xl font-semibold mb-6">
                   Nearby Facilities
                 </h2>
-                <ResultsList results={results} />
+                <div className="flex flex-col gap-4">
+                  <ResultsList results={results} />
+
+                  <Button
+                    className="bg-[#d42ca7] hover:bg-[#a5147e]"
+                  >
+                    See More Places
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -95,19 +112,45 @@ export default function Page() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-primary" />
-                    Emergency Services
+                    Emergency Hotlines
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="font-medium">Emergency Hotline</div>
+                      <div className="font-medium">Kenya</div>
+                      <Badge variant="destructive">112</Badge>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <div className="font-medium">Ethiopia</div>
+                      <Badge variant="destructive">911</Badge>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <div className="font-medium">Ghana</div>
+                      <Badge variant="destructive">112</Badge>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <div className="font-medium">Nigeria</div>
+                      <Badge variant="destructive">112</Badge>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <div className="font-medium">Tanzania</div>
+                      <Badge variant="destructive">114</Badge>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <div className="font-medium">Uganda</div>
                       <Badge variant="destructive">911</Badge>
                     </div>
                     <Separator />
                     <div className="text-sm text-muted-foreground">
-                      For immediate medical emergencies, please dial 911 or
-                      visit your nearest emergency room.
+                      For immediate medical emergencies, please dial the
+                      emergency hotline for your country, or visit the nearest
+                      healthcare facility.
                     </div>
                   </div>
                 </CardContent>
