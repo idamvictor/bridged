@@ -129,7 +129,7 @@ const ads = [
     description:
       "Fuel your body with premium, science-backed supplements from NutriLife. Enhance your health naturally.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-6.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/dessert-on-a-plate.jpg",
     title: "NOURISH YOUR BODY, ELEVATE YOUR LIFE",
     content:
       "Discover our range of vitamins, minerals, and herbal supplements for optimal health.",
@@ -145,7 +145,7 @@ const ads = [
     description:
       "Find your inner peace at ZenYoga Studio. Classes for all levels, from beginners to advanced practitioners.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-7.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/woman-on-a-football-field.jpg",
     title: "BREATHE, STRETCH, RELAX",
     content:
       "Join our community and experience the transformative power of yoga.",
@@ -161,7 +161,7 @@ const ads = [
     description:
       "Organic, sustainable, and delicious. EcoHealth Foods brings nature's best straight to your table.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/cld-sample.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/upscale-face-1.jpg",
     title: "EAT WELL, LIVE BETTER",
     content:
       "Discover our range of organic produce, whole grains, and superfoods.",
@@ -177,7 +177,7 @@ const ads = [
     description:
       "Experience the difference a good night's sleep can make with SleepWell Mattresses.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-9.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/cup-on-a-table.jpg",
     title: "DREAM BETTER, LIVE BETTER",
     content:
       "Our ergonomic mattresses are designed to provide optimal support and comfort.",
@@ -193,7 +193,7 @@ const ads = [
     description:
       "Ensure your family drinks the purest water with PureWater Filters. Advanced filtration for your peace of mind.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-10.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/coffee.jpg",
     title: "PURE WATER, PURE LIFE",
     content:
       "Our filters remove 99.9% of contaminants, giving you crystal clear, great-tasting water.",
@@ -209,7 +209,7 @@ const ads = [
     description:
       "Unlock your brain's potential with MindBoost Learning. Cognitive enhancement programs for all ages.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/cld-sample.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075754/samples/man-on-a-street.jpg",
     title: "SHARPEN YOUR MIND",
     content:
       "Our scientifically-designed courses help improve memory, focus, and cognitive function.",
@@ -225,7 +225,7 @@ const ads = [
     description:
       "Nourish your skin naturally with GreenLife Skincare. Organic, cruelty-free products for radiant skin.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-12.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075754/samples/look-up.jpg",
     title: "GLOW NATURALLY",
     content:
       "Discover our range of plant-based cleansers, moisturizers, and serums.",
