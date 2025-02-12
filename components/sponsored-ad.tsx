@@ -281,12 +281,7 @@ export default function SponsoredAd() {
         <p className="text-sm mb-3">{currentAd.content}</p>
         <button
           className={`bg-[${currentAd.buttonColor}] hover:bg-[${currentAd.buttonHoverColor}] text-white text-sm font-semibold px-4 py-2 rounded`}
-          style={{
-            backgroundColor: currentAd.buttonColor,
-            ":hover": {
-              backgroundColor: currentAd.buttonHoverColor,
-            },
-          }}
+          style={{ backgroundColor: currentAd.buttonColor }}
         >
           {currentAd.buttonText}
         </button>
