@@ -47,7 +47,7 @@ export default function Header() {
       style={{ backgroundColor: "#e8f3f1" }}
     >
       <HeaderNav />
-      <Link href="/" className="flex items-center mt-4">
+      <Link href="/user" className="flex items-center mt-4">
         <Image
           src="/logo.png"
           alt="Bridged Logo"
