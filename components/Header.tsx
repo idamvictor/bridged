@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,7 +41,7 @@ const notifications = [
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
-
+  
   return (
     <nav
       className="flex h-16 items-center justify-between px-4"
