@@ -4,6 +4,7 @@ export default function page() {
     <div style={{ width: "100%", height: "100vh" }}>
       <iframe
         src="https://connect.bridgedimpact.com/members/space-attomgmail-com/"
+       
         width="100%"
         height="100%"
         style={{ border: "none" }}
