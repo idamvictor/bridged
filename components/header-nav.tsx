@@ -1,6 +1,8 @@
 
 
-import { MapPinCheck, Newspaper, Users } from 'lucide-react';
+import { MapPinCheck, Newspaper } from 'lucide-react';
+import { FaConnectdevelop } from "react-icons/fa";
+
 import Link from 'next/link';
 import React from 'react'
 
@@ -17,8 +19,9 @@ export default function HeaderNav() {
         href="/groups"
         className="text-sm font-medium flex flex-col items-center"
       >
-        <Users size={20} />
-        Bridged Network
+        
+        <FaConnectdevelop size={23} />
+        Interconnectivity
       </Link>
       <Link
         href="/map"

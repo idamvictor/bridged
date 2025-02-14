@@ -33,7 +33,7 @@ This marks the first time Kenya has used a digital system for a mass public heal
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739220276/Kenya_twmg9r.jpg",
     date: "Jan 30, 2025",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Health Specialist",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -81,7 +81,7 @@ In his opening remarks, Dr. Daniel Langat, the head of division of disease surve
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739220794/Mpox_20IAR_20WHO_20Kenya_20_C2_A9Micheal_20Mutisya_jitlcv.jpg",
     date: "Mar 3, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Tech Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -104,7 +104,7 @@ Kenya’s Ministry of Health, with support from WHO and partners, has developed 
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739220918/Mpox_20diagnostics_hmjpu9.jpg",
     date: "Jan 22, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Women's Health Specialist",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -126,7 +126,7 @@ The Government of Kenya has mounted a multisectoral emergency response, led by t
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221074/Video_3_de9uyn.jpg",
     date: "Feb 15, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Local Events Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -148,7 +148,7 @@ The Baby-Friendly Hospital Initiative, established by the World Health Organizat
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221279/MicrosoftTeams-image_io7hf2.jpg",
     date: "Mar 3, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Tech Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -172,7 +172,7 @@ The initiative in the three countries includes health promotion, screening, earl
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221358/e89ddd0960eee5c57ba98da220fd9ea5_mgyvdv.jpg",
     date: "Jan 22, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Women's Health Specialist",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -196,7 +196,7 @@ Aligning with the theme of World No Tobacco Day 2023, Grow Food, not Tobacco, th
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221452/WhatsApp_20Image_202023-05-30_20at_2010.33.04_20_281_29_hixxcv.jpg",
     date: "Feb 15, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Local Events Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -217,7 +217,7 @@ This year, Kenya is hosting the global commemoration of the World No Tobacco Day
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221584/WHO_20team_20on_20the_20farm_0_wh6qjd.jpg",
     date: "Mar 3, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Tech Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -241,7 +241,7 @@ Malaria experts refer to the areas around the lake’s shore as Kenya’s “lak
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221742/Kenya_uflnqn.jpg",
     date: "Jan 22, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Women's Health Specialist",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -262,7 +262,7 @@ The three-year-old pilot implemented from September 2019, made the vaccine avail
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222053/Mothers_20and_20their_20children_20_20at_20ANC_20clinic_20in_20Homa_20Bay_i25atg.jpg",
     date: "Feb 15, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Local Events Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -281,7 +281,7 @@ Dr Mary Nyangasi, who heads the National Cancer Control Programme Division at Ke
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222257/For_20banner_cr9sav.jpg",
     date: "Mar 3, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Tech Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -306,7 +306,7 @@ There has been an evolution of awareness of mental health over the years because
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222444/For_20Kenya_20Q_26A_i3x7cf.jpg",
     date: "Jan 22, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Women's Health Specialist",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -326,7 +326,7 @@ Despite the advances, the COVID-19 pandemic has exposed huge gaps, particularly 
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222540/DG_20shakes_20with_20HE_0_rnwtwq.jpg",
     date: "Feb 15, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Local Events Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
@@ -348,7 +348,7 @@ Despite the advances, the COVID-19 pandemic has exposed huge gaps, particularly 
       "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222653/FEePU9FXwAcSVtc_0_j5sbaj.jpg",
     date: "Mar 3, 2022",
     author: {
-      name: "Bridged Centre for Impact",
+      name: "Bridged Connect",
       role: "Tech Correspondent",
       avatar: "/placeholder.svg?height=40&width=40",
     },
