@@ -117,13 +117,6 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/utils/supabase/client";
 import React, { useState } from "react";
 
-// Define types for the news items
-interface Author {
-  name: string;
-  role: string;
-  avatar: string;
-}
-
 interface NewsBrief {
   id: string;
   title: string;
