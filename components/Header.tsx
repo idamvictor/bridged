@@ -13,7 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import HeaderNav from "./header-nav";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import ClerkOperation from "./ClerkOperation";
+// import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const notifications = [
   {
@@ -60,8 +61,14 @@ export default function Header() {
     };
   }, []);
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const toggleSearch = () => {
-    setShowSearch(!showSearch);
+    setShowSearch((prev) => !prev);
     if (!showSearch) {
       setTimeout(() => inputRef.current?.focus(), 0);
     }
@@ -93,6 +100,18 @@ export default function Header() {
             >
               <Search className="h-4 w-4" />
             </Button>
+            <div
+              className={`absolute right-0 top-full mt-2 transition-all duration-300 ease-in-out ${
+                showSearch ? "opacity-100 visible" : "opacity-0 invisible"
+              } md:right-0 md:top-0 md:mt-0`}
+            >
+              <Input
+                ref={inputRef}
+                type="search"
+                placeholder="Search..."
+                className="h-9 rounded-full bg-white pr-8 md:w-64"
+              />
+            </div>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -134,21 +153,7 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <SignedOut>
-            <Link href="/sign-in">
-              <Button className="bg-[#d42ca7] text-white hover:bg-[#a5147e]">
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button className="bg-[#d42ca7] text-white hover:bg-[#a5147e]">
-                Sign Up
-              </Button>
-            </Link>
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          {isClient && <ClerkOperation />}
         </div>
       </nav>
       <div
@@ -168,4 +173,3 @@ export default function Header() {
     </>
   );
 }
-

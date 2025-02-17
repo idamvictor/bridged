@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google"; // Import Poppins font
 import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import QueryProvider from "@/context/QueryProvider";
 
 // Define Poppins font with desired weights and subsets
 const poppins = Poppins({
@@ -26,10 +27,12 @@ export default function RootLayout({
       <html lang="en">
         {/* Apply the Poppins font globally via className */}
         <body className={`${poppins.className} antialiased`}>
-          <div>
-            <Header />
-            {children}
-          </div>
+          <QueryProvider>
+            <div>
+              <Header />
+              {children}
+            </div>
+          </QueryProvider>
         </body>
       </html>
     </ClerkProvider>
