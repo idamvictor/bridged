@@ -1,92 +1,218 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/utils/supabase/client";
-import React, { useState } from "react";
 
-interface NewsBrief {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  subcategory: "Top Stories" | "Local News" | "Latest News";
-  image: string;
-  date: string;
-  readTime?: string;
-}
+import { useState, useEffect } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Search, MapPin, History } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-interface NewsDetails extends NewsBrief {
-  content: string;
-  author_name: string;
-  author_role: string;
-  author_avatar: string;
-}
+export default function SearchBar() {
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  const [userLocation, setUserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
 
-const fetchNewsBriefs = async (): Promise<NewsBrief[]> => {
-  const { data, error } = await supabase.from("news_brief").select("*");
-  if (error) throw new Error(error.message);
-  return data as NewsBrief[];
-};
+  const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
 
-const fetchNewsDetails = async (id: string): Promise<NewsDetails> => {
-  const { data, error } = await supabase
-    .from("news_details")
-    .select("*")
-    .eq("id", id)
-    .single();
-  if (error) throw new Error(error.message);
-  return data as NewsDetails;
-};
+  // Load recent searches from localStorage on component mount
+  useEffect(() => {
+    const savedSearches = localStorage.getItem("recentSearches");
+    if (savedSearches) {
+      setRecentSearches(JSON.parse(savedSearches));
+    }
+  }, []);
 
-const NewsList: React.FC = () => {
-  const [selectedNewsId, setSelectedNewsId] = useState<string | null>(null);
+  // Fetch suggestions from the API
+  useEffect(() => {
+    if (query.length > 2) {
+      fetchSuggestions(query);
+    } else {
+      setSuggestions([]);
+    }
+  }, [query]);
 
-  const {
-    data: newsBriefs,
-    isLoading,
-    isError,
-  } = useQuery<NewsBrief[], Error>({
-    queryKey: ["newsBriefs"],
-    queryFn: fetchNewsBriefs,
-  });
+  const fetchSuggestions = async (input: string) => {
+    try {
+      const response = await fetch(
+        `https://maps.gomaps.pro/maps/api/place/autocomplete/json?input=${input}&key=${API_KEY}&types=health|doctor|hospital&keyword=hospital|clinic|medical`
+      );
+      const data = await response.json();
+      if (data.predictions) {
+        setSuggestions(
+          data.predictions.map((prediction: any) => prediction.description)
+        );
+      }
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+    }
+  };
 
-  const { data: selectedNews } = useQuery<NewsDetails, Error>({
-    queryKey: ["newsDetails", selectedNewsId],
-    queryFn: () => fetchNewsDetails(selectedNewsId!),
-    enabled: !!selectedNewsId, // This query will not run until selectedNewsId is truthy
-  });
+  // Handle search submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    performSearch(query);
+  };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error fetching news briefs</div>;
+  // Perform search and update recent searches
+  const performSearch = (searchQuery: string) => {
+    if (searchQuery.trim() !== "") {
+      // Perform the search logic here
+      console.log("Searching for:", searchQuery); // Replace this with your actual search logic
+
+      // Add the search query to recent searches
+      const updatedSearches = [
+        searchQuery,
+        ...recentSearches.filter(
+          (search) => search.toLowerCase() !== searchQuery.toLowerCase()
+        ),
+      ].slice(0, 5); // Limit to 5 items and remove duplicates
+      setRecentSearches(updatedSearches);
+      localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
+
+      console.log("Recent Searches Updated:", updatedSearches); // Debugging
+    }
+    setShowSuggestions(false);
+  };
+
+  // Handle "Use my location" button click
+  const handleUseLocation = () => {
+    console.log("Requesting user location...");
+
+    if (!navigator.geolocation) {
+      console.error("Geolocation is not supported by this browser.");
+      return;
+    }
+
+    console.log("Requesting user location...");
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setUserLocation({ latitude, longitude });
+        console.log("User location:", { latitude, longitude }); // Log location to console
+
+        // Optionally, you can perform a search based on the user's location
+        performSearch(
+          `Nearby healthcare facilities at ${latitude}, ${longitude}`
+        );
+      },
+      (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            console.error("User denied the request for Geolocation.");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            console.error("Location information is unavailable.");
+            break;
+          case error.TIMEOUT:
+            console.error("The request to get user location timed out.");
+            break;
+          default:
+            console.error("An unknown error occurred.");
+            break;
+        }
+      },
+      {
+        enableHighAccuracy: true, // Request high accuracy (optional)
+        timeout: 5000, // Timeout after 5 seconds
+        maximumAge: 0, // Do not use a cached position
+      }
+    );
+  };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">News Briefs</h1>
-      <div className="grid gap-6 grid-cols-2 lg:grid-cols-3">
-        {newsBriefs?.map((news) => (
-          <div
-            key={news.id}
-            className="p-4 border rounded shadow-md cursor-pointer"
-            onClick={() => setSelectedNewsId(news.id)}
-          >
-            <h2 className="text-xl font-bold">{news.title}</h2>
-            <p className="text-gray-600">{news.excerpt}</p>
-            <p className="text-gray-500">Category: {news.category}</p>
-            <p className="text-gray-500">Date: {news.date}</p>
+    <div className="relative w-full max-w-2xl mx-auto">
+      <form onSubmit={handleSubmit} className="relative flex items-center">
+        <div className="relative flex-1">
+          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            <Search className="h-4 w-4 text-muted-foreground" />
           </div>
-        ))}
-      </div>
-      {selectedNews && (
-        <div className="mt-8 p-4 border rounded shadow-md">
-          <h2 className="text-2xl font-bold mb-4">Selected News Details</h2>
-          <h3 className="text-xl font-bold">{selectedNews.title}</h3>
-          <p className="text-gray-600">{selectedNews.content}</p>
-          <p className="text-gray-500">Author: {selectedNews.author_name}</p>
-          <p className="text-gray-500">Role: {selectedNews.author_role}</p>
-          <p className="text-gray-500">Date: {selectedNews.date}</p>
+          <Input
+            type="text"
+            className="pl-10 pr-20 h-12 text-lg rounded-full border-2 border-primary/20 focus-visible:ring-primary"
+            placeholder="Search for health care facilities"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setShowSuggestions(true);
+            }}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+          />
+          {showSuggestions && suggestions.length > 0 && (
+            <div className="absolute z-10 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
+              {suggestions.map((suggestion, index) => (
+                <div
+                  key={index}
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setQuery(suggestion);
+                    performSearch(suggestion); // Call performSearch directly
+                  }}
+                >
+                  {suggestion}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+        <Button
+          type="submit"
+          className="absolute right-2 rounded-full"
+          size="sm"
+        >
+          Search
+        </Button>
+      </form>
+      <div className="absolute -bottom-10 left-3 flex items-center space-x-4">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-sm text-muted-foreground"
+          onClick={handleUseLocation} // Add onClick handler for "Use my location"
+        >
+          <MapPin className="h-4 w-4 mr-1" />
+          Use my location
+        </Button>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-sm text-muted-foreground"
+            >
+              <History className="h-4 w-4 mr-1" />
+              Recent searches
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="w-[200px]">
+            {recentSearches.length > 0 ? (
+              recentSearches.map((search, index) => (
+                <DropdownMenuItem
+                  key={index}
+                  onClick={() => {
+                    setQuery(search);
+                    performSearch(search); // Call performSearch directly
+                  }}
+                >
+                  {search}
+                </DropdownMenuItem>
+              ))
+            ) : (
+              <DropdownMenuItem disabled>No recent searches</DropdownMenuItem>
+            )}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </div>
   );
-};
-
-export default NewsList;
+}

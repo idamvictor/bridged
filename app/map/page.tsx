@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { MapPlaceholder } from "@/components/map-placeholder";
-import { SearchBar } from "@/components/search-bar";
 import { ResultsList } from "@/components/results-list";
 import { InfoCard } from "@/components/info-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SearchBar from "@/components/search-bar";
 
 interface HealthCareFacility {
   id: string;
@@ -83,7 +83,7 @@ export default function Page() {
             </p>
           </div>
 
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
@@ -97,9 +97,7 @@ export default function Page() {
                 <div className="flex flex-col gap-4">
                   <ResultsList results={results} />
 
-                  <Button
-                    className="bg-[#d42ca7] hover:bg-[#a5147e]"
-                  >
+                  <Button className="bg-[#d42ca7] hover:bg-[#a5147e]">
                     See More Places
                   </Button>
                 </div>

@@ -66,9 +66,9 @@ export function ResultsList({ results }: ResultsListProps) {
                 )}
               </div>
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
-                className="opacity-0 group-hover:opacity-100 transition-opacity "
+                className="opacity-1 group-hover:opacity-100 transition-opacity "
               >
                 <Navigation2 className="h-4 w-4 mr-2" />
                 Get directions
