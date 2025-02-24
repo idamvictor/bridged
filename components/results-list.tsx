@@ -40,7 +40,7 @@ export function ResultsList({ userLocation }: ResultsListProps) {
 
       try {
         const response = await fetch(
-          `https://maps.gomaps.pro/maps/api/place/nearbysearch/json?location=${userLocation.latitude},${userLocation.longitude}&radius=5000&type=hospital&key=AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r`
+          `https://maps.gomaps.pro/maps/api/place/nearbysearch/json?location=${userLocation?.latitude},${userLocation?.longitude}&radius=5000&type=hospital&key=AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r`
         );
         const data = await response.json();
 
@@ -58,6 +58,7 @@ export function ResultsList({ userLocation }: ResultsListProps) {
         }
       } catch (error) {
         setError("Error fetching hospitals. Please try again.");
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -71,8 +72,8 @@ export function ResultsList({ userLocation }: ResultsListProps) {
       <div className="text-center text-muted-foreground">
         <p>
           No location provided. Please click on the{" "}
-          <strong>"Use My Location"</strong> button above to fetch nearby
-          hospitals.
+          <strong>&quot;Use My Location&quot;</strong> button above to fetch
+          nearby hospitals.
         </p>
       </div>
     );
