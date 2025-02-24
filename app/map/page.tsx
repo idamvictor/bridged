@@ -21,7 +21,10 @@ export default function Page() {
     if (selectedLocation) {
       console.log("Selected location:", selectedLocation);
     }
-  }, [selectedLocation]);
+    if (userLocation) {
+      console.log("Selected location:", userLocation);
+    }
+  }, [userLocation, selectedLocation]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background mb-10">
@@ -43,7 +46,7 @@ export default function Page() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="h-[400px] rounded-xl overflow-hidden shadow-xl">
-                <MapPlaceholder />
+                <MapPlaceholder placeName={selectedLocation} />
               </div>
               <div className="bg-card rounded-xl p-6 shadow-lg">
                 <h2 className="text-2xl font-semibold mb-6">
