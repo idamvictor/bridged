@@ -7,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/search-bar";
 
 export default function Page() {
@@ -54,9 +53,6 @@ export default function Page() {
                 </h2>
                 <div className="flex flex-col gap-4">
                   <ResultsList />
-                  <Button className="bg-[#d42ca7] hover:bg-[#a5147e]">
-                    See More Places
-                  </Button>
                 </div>
               </div>
             </div>
