@@ -18,11 +18,44 @@ interface Result {
   openNow?: boolean;
 }
 
-interface ResultsListProps {
-  results: Result[];
-}
+const dummyResults: Result[] = [
+  {
+    id: "1",
+    name: "Halcyon Hospital",
+    address: "Office Suites, 7th Floor, Fifth Ngong Ave., Nairobi, Kenya",
+    rating: 4.9,
+    phone: "+254794264502",
+    openNow: true,
+  },
+  {
+    id: "2",
+    name: "The Nairobi Hospital",
+    address: "Argwings Kodhek Road, Nairobi, Kenya",
+    rating: 3.4,
+    phone: "+254202845000",
+    openNow: true,
+  },
+  {
+    id: "3",
+    name: "MP Shah Hospital",
+    address: "Shivaji Road, Nairobi, Kenya",
+    rating: 4.3,
+    phone: "+254111000600",
+    openNow: false,
+  },
+  {
+    id: "4",
+    name: "Rayhaan Healthcare",
+    address: "Park Medical Centre, 3rd Parklands Ave., Nairobi, Kenya",
+    rating: 4.8,
+    phone: "+25411051530",
+    openNow: true,
+  },
+];
 
-export function ResultsList({ results }: ResultsListProps) {
+export function ResultsList() {
+  const results = dummyResults;
+
   return (
     <div className="space-y-4">
       {results.map((result) => (
