@@ -52,7 +52,7 @@ export default function Page() {
                   Nearby Facilities
                 </h2>
                 <div className="flex flex-col gap-4">
-                  <ResultsList />
+                  <ResultsList userLocation={userLocation} />
                 </div>
               </div>
             </div>
