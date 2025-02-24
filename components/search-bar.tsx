@@ -20,10 +20,10 @@ export default function SearchBar() {
     latitude: number;
     longitude: number;
   } | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null); // Store selected location
 
   const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
 
-  // Load recent searches from localStorage on component mount
   useEffect(() => {
     const savedSearches = localStorage.getItem("recentSearches");
     if (savedSearches) {
@@ -31,7 +31,6 @@ export default function SearchBar() {
     }
   }, []);
 
-  // Fetch suggestions from the API
   useEffect(() => {
     if (query.length > 2) {
       fetchSuggestions(query);
@@ -39,6 +38,12 @@ export default function SearchBar() {
       setSuggestions([]);
     }
   }, [query]);
+
+  useEffect(() => {
+    if (selectedLocation) {
+      console.log("Selected location:", selectedLocation);
+    }
+  }, [selectedLocation]); // Log selected location when it updates
 
   const fetchSuggestions = async (input: string) => {
     try {
@@ -56,54 +61,44 @@ export default function SearchBar() {
     }
   };
 
-  // Handle search submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     performSearch(query);
   };
 
-  // Perform search and update recent searches
   const performSearch = (searchQuery: string) => {
     if (searchQuery.trim() !== "") {
-      // Perform the search logic here
-      console.log("Searching for:", searchQuery); // Replace this with your actual search logic
+      console.log("Searching for:", searchQuery);
+      setSelectedLocation(searchQuery); // Store selected location
 
-      // Add the search query to recent searches
       const updatedSearches = [
         searchQuery,
         ...recentSearches.filter(
           (search) => search.toLowerCase() !== searchQuery.toLowerCase()
         ),
-      ].slice(0, 5); // Limit to 5 items and remove duplicates
+      ].slice(0, 5);
       setRecentSearches(updatedSearches);
       localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
-
-      console.log("Recent Searches Updated:", updatedSearches); // Debugging
     }
     setShowSuggestions(false);
   };
 
-  // Handle "Use my location" button click
   const handleUseLocation = () => {
-    console.log("Requesting user location...");
-
     if (!navigator.geolocation) {
       console.error("Geolocation is not supported by this browser.");
       return;
     }
 
-    console.log("Requesting user location...");
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
         setUserLocation({ latitude, longitude });
-        console.log("User location:", { latitude, longitude }); // Log location to console
 
-        // Optionally, you can perform a search based on the user's location
-        performSearch(
-          `Nearby healthcare facilities at ${latitude}, ${longitude}`
-        );
+        const locationString = `Nearby healthcare facilities at ${latitude}, ${longitude}`;
+        setSelectedLocation(locationString); // Store selected location
+        console.log("User location:", locationString);
+
+        performSearch(locationString);
       },
       (error) => {
         switch (error.code) {
@@ -122,9 +117,9 @@ export default function SearchBar() {
         }
       },
       {
-        enableHighAccuracy: true, // Request high accuracy (optional)
-        timeout: 5000, // Timeout after 5 seconds
-        maximumAge: 0, // Do not use a cached position
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
       }
     );
   };
@@ -153,9 +148,9 @@ export default function SearchBar() {
                 <div
                   key={index}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
+                  onMouseDown={() => {
                     setQuery(suggestion);
-                    performSearch(suggestion); // Call performSearch directly
+                    performSearch(suggestion);
                   }}
                 >
                   {suggestion}
@@ -177,7 +172,7 @@ export default function SearchBar() {
           variant="ghost"
           size="sm"
           className="text-sm text-muted-foreground"
-          onClick={handleUseLocation} // Add onClick handler for "Use my location"
+          onClick={handleUseLocation}
         >
           <MapPin className="h-4 w-4 mr-1" />
           Use my location
@@ -199,9 +194,9 @@ export default function SearchBar() {
               recentSearches.map((search, index) => (
                 <DropdownMenuItem
                   key={index}
-                  onClick={() => {
+                  onMouseDown={() => {
                     setQuery(search);
-                    performSearch(search); // Call performSearch directly
+                    performSearch(search);
                   }}
                 >
                   {search}
