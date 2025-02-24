@@ -1,16 +1,17 @@
-"use client";
+"use client"; // This directive ensures the component runs in a client-side environment.
 
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, MapPin, History } from "lucide-react";
+import { Search, MapPin, History } from "lucide-react"; // Icons for UI elements
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu"; // Dropdown menu components
 
+// Define props expected by the SearchBar component
 interface SearchBarProps {
   setUserLocation: (
     location: { latitude: number; longitude: number } | null
@@ -18,17 +19,19 @@ interface SearchBarProps {
   setSelectedLocation: (location: string | null) => void;
 }
 
+// SearchBar component
 export default function SearchBar({
   setUserLocation,
   setSelectedLocation,
 }: SearchBarProps) {
-  const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  const [query, setQuery] = useState(""); // Stores the user's search input
+  const [suggestions, setSuggestions] = useState<string[]>([]); // Stores autocomplete suggestions
+  const [showSuggestions, setShowSuggestions] = useState(false); // Controls whether suggestions dropdown is visible
+  const [recentSearches, setRecentSearches] = useState<string[]>([]); // Stores recent search history
 
   const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
 
+  // Load recent searches from local storage on component mount
   useEffect(() => {
     const savedSearches = localStorage.getItem("recentSearches");
     if (savedSearches) {
@@ -36,14 +39,16 @@ export default function SearchBar({
     }
   }, []);
 
+  // Fetch autocomplete suggestions when the user types
   useEffect(() => {
     if (query.length > 2) {
       fetchSuggestions(query);
     } else {
-      setSuggestions([]);
+      setSuggestions([]); // Clear suggestions if query is too short
     }
   }, [query]);
 
+  // Fetch location suggestions from the API
   const fetchSuggestions = async (input: string) => {
     try {
       const response = await fetch(
@@ -62,28 +67,32 @@ export default function SearchBar({
     }
   };
 
+  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     performSearch(query);
   };
 
+  // Perform a search and update recent searches
   const performSearch = (searchQuery: string) => {
     if (searchQuery.trim() !== "") {
       console.log("Searching for:", searchQuery);
-      setSelectedLocation(searchQuery); // Use the prop to update selected location
+      setSelectedLocation(searchQuery); // Updates selected location in parent component
 
+      // Update and store recent searches
       const updatedSearches = [
         searchQuery,
         ...recentSearches.filter(
           (search) => search.toLowerCase() !== searchQuery.toLowerCase()
         ),
-      ].slice(0, 5);
+      ].slice(0, 5); // Keep only the last 5 searches
       setRecentSearches(updatedSearches);
       localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
     }
-    setShowSuggestions(false);
+    setShowSuggestions(false); // Hide suggestions after search
   };
 
+  // Handle "Use my location" functionality
   const handleUseLocation = () => {
     if (!navigator.geolocation) {
       console.error("Geolocation is not supported by this browser.");
@@ -93,16 +102,17 @@ export default function SearchBar({
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        // setUserLocationState({ latitude, longitude });
-        setUserLocation({ latitude, longitude }); // Use the prop to update user location
+        setUserLocation({ latitude, longitude }); // Update user location in parent component
 
+        // Format a readable location string
         const locationString = `Nearby healthcare facilities at ${latitude}, ${longitude}`;
-        setSelectedLocation(locationString); // Use the prop to update selected location
+        setSelectedLocation(locationString); // Update selected location in parent component
         console.log("User location:", locationString);
 
         performSearch(locationString);
       },
       (error) => {
+        // Handle possible geolocation errors
         switch (error.code) {
           case error.PERMISSION_DENIED:
             console.error("User denied the request for Geolocation.");
@@ -119,20 +129,23 @@ export default function SearchBar({
         }
       },
       {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
+        enableHighAccuracy: true, // Request high accuracy for better results
+        timeout: 5000, // Maximum time to wait for location response
+        maximumAge: 0, // Prevent using cached location data
       }
     );
   };
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
+      {/* Search form */}
       <form onSubmit={handleSubmit} className="relative flex items-center">
         <div className="relative flex-1">
+          {/* Search icon */}
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
             <Search className="h-4 w-4 text-muted-foreground" />
           </div>
+          {/* Search input */}
           <Input
             type="text"
             className="pl-10 pr-20 h-12 text-lg rounded-full border-2 border-primary/20 focus-visible:ring-primary"
@@ -144,6 +157,7 @@ export default function SearchBar({
             }}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           />
+          {/* Suggestions dropdown */}
           {showSuggestions && suggestions.length > 0 && (
             <div className="absolute z-10 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
               {suggestions.map((suggestion, index) => (
@@ -161,6 +175,7 @@ export default function SearchBar({
             </div>
           )}
         </div>
+        {/* Search button */}
         <Button
           type="submit"
           className="absolute right-2 rounded-full"
@@ -169,7 +184,10 @@ export default function SearchBar({
           Search
         </Button>
       </form>
+
+      {/* Additional options: Use my location & recent searches */}
       <div className="absolute -bottom-10 left-3 flex items-center space-x-4">
+        {/* Use my location button */}
         <Button
           variant="ghost"
           size="sm"
@@ -180,6 +198,7 @@ export default function SearchBar({
           Use my location
         </Button>
 
+        {/* Dropdown for recent searches */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
