@@ -15,6 +15,10 @@ export default function Page() {
     longitude: number;
   } | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [selectedCoords, setSelectedCoords] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
 
   useEffect(() => {
     if (selectedLocation) {
@@ -23,7 +27,10 @@ export default function Page() {
     if (userLocation) {
       console.log("Selected location:", userLocation);
     }
-  }, [userLocation, selectedLocation]);
+    if (selectedCoords) {
+      console.log("Selected Coordinates:", selectedCoords);
+    }
+  }, [userLocation, selectedLocation, selectedCoords]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background mb-10">
@@ -41,11 +48,12 @@ export default function Page() {
           <SearchBar
             setUserLocation={setUserLocation}
             setSelectedLocation={setSelectedLocation}
+            setSelectedCoords={setSelectedCoords}
           />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="h-[400px] rounded-xl overflow-hidden shadow-xl">
-                <MapPlaceholder />
+                <MapPlaceholder selectedCoords={selectedCoords} />
               </div>
               <div className="bg-card rounded-xl p-6 shadow-lg">
                 <h2 className="text-2xl font-semibold mb-6">
