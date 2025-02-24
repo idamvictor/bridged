@@ -11,16 +11,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function SearchBar() {
+interface SearchBarProps {
+  setUserLocation: (
+    location: { latitude: number; longitude: number } | null
+  ) => void;
+  setSelectedLocation: (location: string | null) => void;
+}
+
+export default function SearchBar({
+  setUserLocation,
+  setSelectedLocation,
+}: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
-  const [userLocation, setUserLocation] = useState<{
-    latitude: number;
-    longitude: number;
-  } | null>(null);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null); // Store selected location
 
   const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
 
@@ -38,12 +43,6 @@ export default function SearchBar() {
       setSuggestions([]);
     }
   }, [query]);
-
-  useEffect(() => {
-    if (selectedLocation) {
-      console.log("Selected location:", selectedLocation);
-    }
-  }, [selectedLocation]); // Log selected location when it updates
 
   const fetchSuggestions = async (input: string) => {
     try {
@@ -69,7 +68,7 @@ export default function SearchBar() {
   const performSearch = (searchQuery: string) => {
     if (searchQuery.trim() !== "") {
       console.log("Searching for:", searchQuery);
-      setSelectedLocation(searchQuery); // Store selected location
+      setSelectedLocation(searchQuery); // Use the prop to update selected location
 
       const updatedSearches = [
         searchQuery,
@@ -92,10 +91,11 @@ export default function SearchBar() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        setUserLocation({ latitude, longitude });
+        // setUserLocationState({ latitude, longitude });
+        setUserLocation({ latitude, longitude }); // Use the prop to update user location
 
         const locationString = `Nearby healthcare facilities at ${latitude}, ${longitude}`;
-        setSelectedLocation(locationString); // Store selected location
+        setSelectedLocation(locationString); // Use the prop to update selected location
         console.log("User location:", locationString);
 
         performSearch(locationString);

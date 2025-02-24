@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import { MapPlaceholder } from "@/components/map-placeholder";
 import { ResultsList } from "@/components/results-list";
 import { InfoCard } from "@/components/info-card";
@@ -10,6 +11,18 @@ import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/search-bar";
 
 export default function Page() {
+  const [userLocation, setUserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selectedLocation) {
+      console.log("Selected location:", selectedLocation);
+    }
+  }, [selectedLocation]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-background mb-10">
       <div className="container mx-auto p-8">
@@ -23,7 +36,10 @@ export default function Page() {
               area
             </p>
           </div>
-          <SearchBar />
+          <SearchBar
+            setUserLocation={setUserLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="h-[400px] rounded-xl overflow-hidden shadow-xl">
