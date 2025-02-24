@@ -52,7 +52,9 @@ export default function SearchBar({
       const data = await response.json();
       if (data.predictions) {
         setSuggestions(
-          data.predictions.map((prediction: any) => prediction.description)
+          data.predictions.map(
+            (prediction: { description: string }) => prediction.description
+          )
         );
       }
     } catch (error) {

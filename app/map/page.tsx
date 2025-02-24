@@ -46,7 +46,7 @@ export default function Page() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="h-[400px] rounded-xl overflow-hidden shadow-xl">
-                <MapPlaceholder placeName={selectedLocation} />
+                <MapPlaceholder />
               </div>
               <div className="bg-card rounded-xl p-6 shadow-lg">
                 <h2 className="text-2xl font-semibold mb-6">
