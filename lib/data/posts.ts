@@ -7,6 +7,7 @@ export interface Post {
   image_url?: string;
   timestamp: string;
   sponsored?: boolean;
+  author_name?: string | null;
 }
 
 export async function getPosts(): Promise<Post[]> {

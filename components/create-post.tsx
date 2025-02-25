@@ -18,6 +18,7 @@ import type { Post } from "@/lib/data/posts";
 import type { User } from "@/lib/data/users";
 import { createPost } from "@/lib/data/posts";
 import { supabase } from "@/utils/supabase/client";
+import { useUser } from "@clerk/nextjs";
 
 interface CreatePostProps {
   onPostCreated: (post: Post) => void;
@@ -28,6 +29,9 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
   const [postContent, setPostContent] = useState("");
   const [postImage, setPostImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const user = useUser();
+  const username = user && user.user ? user.user.fullName : "";
 
   const handlePostSubmit = async () => {
     if (postContent.trim() || postImage) {
@@ -54,6 +58,7 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
 
       const newPost = await createPost({
         user_id: currentUser.id,
+        author_name: username,
         content: postContent,
         image_url: imageUrl,
       });
@@ -91,7 +96,7 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
           <Avatar>
             <AvatarImage src={currentUser.avatar} />
             <AvatarFallback>
-              {currentUser.name.substring(0, 2).toUpperCase()}
+              {(username ?? currentUser.name).substring(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
           <div className="flex-1">

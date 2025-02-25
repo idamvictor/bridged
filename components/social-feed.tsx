@@ -162,13 +162,15 @@ export function SocialFeed({
                   <Avatar className="w-8 h-8">
                     <AvatarImage src={author.avatar} />
                     <AvatarFallback>
-                      {author.name.substring(0, 2).toUpperCase()}
+                      {(post.author_name ?? author.name)
+                        .substring(0, 2)
+                        .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-sm">
-                        {author.name}
+                        {post.author_name}
                       </span>
                       {post.sponsored && (
                         <span className="text-xs text-gray-500">Sponsored</span>
