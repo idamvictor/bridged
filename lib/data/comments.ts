@@ -6,6 +6,8 @@ export interface Comment {
   user_id: string;
   content: string;
   timestamp: string;
+  author_name: string;
+  author_avatar: string;
 }
 
 export async function getComments(postId: string): Promise<Comment[]> {

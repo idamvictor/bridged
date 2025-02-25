@@ -25,6 +25,7 @@ import type { Like } from "@/lib/data/likes";
 import { getComments, createComment } from "@/lib/data/comments";
 import { getLikes, toggleLike } from "@/lib/data/likes";
 import { deletePost } from "@/lib/data/posts";
+import { useUser } from "@clerk/nextjs";
 
 interface SocialFeedProps {
   posts: Post[];
@@ -39,6 +40,9 @@ export function SocialFeed({
   currentUser,
   onPostDeleted,
 }: SocialFeedProps) {
+  const user = useUser();
+  const username = user && user.user ? user.user.fullName : "";
+
   const [commentingPostId, setCommentingPostId] = useState<string | null>(null);
   const [newComment, setNewComment] = useState("");
   const [postComments, setPostComments] = useState<{
@@ -77,6 +81,8 @@ export function SocialFeed({
         post_id: postId,
         user_id: currentUser.id,
         content: newComment,
+        author_name: username || currentUser.name,
+        author_avatar: user.user?.imageUrl || currentUser.avatar,
       });
 
       if (comment) {
@@ -272,9 +278,20 @@ export function SocialFeed({
               <div className="px-4 py-2 border-t">
                 <div className="flex items-start space-x-2 mb-4">
                   <Avatar className="w-8 h-8">
-                    <AvatarImage src={currentUser.avatar} />
+                    <AvatarImage
+                      src={
+                        postCommentsArray[0]?.author_avatar ||
+                        currentUser.avatar
+                      }
+                    />
                     <AvatarFallback>
-                      {currentUser.name.substring(0, 2).toUpperCase()}
+                      {(
+                        postCommentsArray[0]?.author_avatar ||
+                        postCommentsArray[0]?.author_name ||
+                        currentUser.name
+                      )
+                        .substring(0, 2)
+                        .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-grow">
@@ -304,15 +321,21 @@ export function SocialFeed({
                           className="flex items-start space-x-2"
                         >
                           <Avatar className="w-8 h-8">
-                            <AvatarImage src={commentAuthor.avatar} />
+                            <AvatarImage
+                              src={
+                                comment.author_avatar || commentAuthor.avatar
+                              }
+                            />
                             <AvatarFallback>
-                              {commentAuthor.name.substring(0, 2).toUpperCase()}
+                              {(comment.author_avatar || comment.author_name)
+                                .substring(0, 2)
+                                .toUpperCase()}
                             </AvatarFallback>
                           </Avatar>
                           <div className="flex-grow bg-gray-100 rounded-lg p-2">
                             <div className="flex items-center justify-between mb-1">
                               <span className="font-semibold text-sm">
-                                {commentAuthor.name}
+                                {comment.author_name || commentAuthor.name}
                               </span>
                               <span className="text-xs text-gray-500">
                                 {new Date(comment.timestamp).toLocaleString()}
