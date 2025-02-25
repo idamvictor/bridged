@@ -1,10 +1,9 @@
-
-
-import { MapPinCheck, Newspaper } from 'lucide-react';
+import { MapPinCheck, Newspaper } from "lucide-react";
 import { FaConnectdevelop } from "react-icons/fa";
 
-import Link from 'next/link';
-import React from 'react'
+import Link from "next/link";
+import React from "react";
+import Image from "next/image";
 
 export default function HeaderNav() {
   return (
@@ -19,8 +18,12 @@ export default function HeaderNav() {
         href="/groups"
         className="text-sm font-medium flex flex-col items-center"
       >
-        
-        <FaConnectdevelop size={23} />
+        <Image
+          src="/Interconnectivity.svg"
+          width={23}
+          height={23}
+          alt="Groups"
+        />
         Interconnectivity
       </Link>
       <Link

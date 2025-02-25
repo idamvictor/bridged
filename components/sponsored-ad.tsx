@@ -14,7 +14,7 @@ const ads = [
     description:
       "We drive impactful healthcare research globally, addressing critical health challenges to improve patient care and public health outcomes.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-2.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479686/WhatsApp_Image_2025-02-20_at_05.21.54_e1ae7d36_cydern.jpg",
     title: "BRIDGED CENTER FOR IMPACT",
     content:
       "Join us on a journey where innovation meets purpose, and together, we create a future defined by positive and lasting interconnected healthcare",
@@ -31,7 +31,7 @@ const ads = [
     description:
       "Skills development, behaviour change and policy implementation · Impact training and organisational culture change · International Research Training",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-4.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479702/WhatsApp_Image_2025-02-20_at_05.31.57_7b047e3d_pdshor.jpg",
     title: "LEARN: BRIDGED CENTER FOR IMPACT",
     content:
       "Embark on a Journey of Knowledge and Skill-Building. Explore Our Diverse Range of Courses Tailored for Your Success.",
@@ -40,134 +40,6 @@ const ads = [
     buttonHoverColor: "#45a049",
     url: "http://www.bridgedimpact.com",
   },
-  // {
-  //   id: 3,
-  //   company: "MindfulMed Therapy",
-  //   avatar: "https://github.com/mindfulmed.png",
-  //   avatarFallback: "MM",
-  //   description:
-  //     "Experience the healing power of mindfulness with MindfulMed Therapy. Online and in-person sessions available.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075756/cld-sample-5.jpg",
-  //   title: "FIND PEACE IN THE PRESENT MOMENT",
-  //   content:
-  //     "Our certified therapists are here to guide you on your journey to mental wellness.",
-  //   buttonText: "Book a Session",
-  //   buttonColor: "#2196F3",
-  //   buttonHoverColor: "#1976D2",
-  // },
-  // {
-  //   id: 4,
-  //   company: "NutriLife Supplements",
-  //   avatar: "https://github.com/nutrilife.png",
-  //   avatarFallback: "NL",
-  //   description:
-  //     "Fuel your body with premium, science-backed supplements from NutriLife. Enhance your health naturally.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/dessert-on-a-plate.jpg",
-  //   title: "NOURISH YOUR BODY, ELEVATE YOUR LIFE",
-  //   content:
-  //     "Discover our range of vitamins, minerals, and herbal supplements for optimal health.",
-  //   buttonText: "Shop Now",
-  //   buttonColor: "#FF9800",
-  //   buttonHoverColor: "#F57C00",
-  // },
-  // {
-  //   id: 5,
-  //   company: "ZenYoga Studio",
-  //   avatar: "https://github.com/zenyoga.png",
-  //   avatarFallback: "ZY",
-  //   description:
-  //     "Find your inner peace at ZenYoga Studio. Classes for all levels, from beginners to advanced practitioners.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/woman-on-a-football-field.jpg",
-  //   title: "BREATHE, STRETCH, RELAX",
-  //   content:
-  //     "Join our community and experience the transformative power of yoga.",
-  //   buttonText: "View Classes",
-  //   buttonColor: "#9C27B0",
-  //   buttonHoverColor: "#7B1FA2",
-  // },
-  // {
-  //   id: 6,
-  //   company: "EcoHealth Foods",
-  //   avatar: "https://github.com/ecohealth.png",
-  //   avatarFallback: "EH",
-  //   description:
-  //     "Organic, sustainable, and delicious. EcoHealth Foods brings nature's best straight to your table.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/upscale-face-1.jpg",
-  //   title: "EAT WELL, LIVE BETTER",
-  //   content:
-  //     "Discover our range of organic produce, whole grains, and superfoods.",
-  //   buttonText: "Explore Products",
-  //   buttonColor: "#8BC34A",
-  //   buttonHoverColor: "#7CB342",
-  // },
-  // {
-  //   id: 7,
-  //   company: "SleepWell Mattresses",
-  //   avatar: "https://github.com/sleepwell.png",
-  //   avatarFallback: "SW",
-  //   description:
-  //     "Experience the difference a good night's sleep can make with SleepWell Mattresses.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/cup-on-a-table.jpg",
-  //   title: "DREAM BETTER, LIVE BETTER",
-  //   content:
-  //     "Our ergonomic mattresses are designed to provide optimal support and comfort.",
-  //   buttonText: "Find Your Perfect Mattress",
-  //   buttonColor: "#3F51B5",
-  //   buttonHoverColor: "#303F9F",
-  // },
-  // {
-  //   id: 8,
-  //   company: "PureWater Filters",
-  //   avatar: "https://github.com/purewater.png",
-  //   avatarFallback: "PW",
-  //   description:
-  //     "Ensure your family drinks the purest water with PureWater Filters. Advanced filtration for your peace of mind.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075755/samples/coffee.jpg",
-  //   title: "PURE WATER, PURE LIFE",
-  //   content:
-  //     "Our filters remove 99.9% of contaminants, giving you crystal clear, great-tasting water.",
-  //   buttonText: "Get Clean Water",
-  //   buttonColor: "#00BCD4",
-  //   buttonHoverColor: "#0097A7",
-  // },
-  // {
-  //   id: 9,
-  //   company: "MindBoost Learning",
-  //   avatar: "https://github.com/mindboost.png",
-  //   avatarFallback: "MB",
-  //   description:
-  //     "Unlock your brain's potential with MindBoost Learning. Cognitive enhancement programs for all ages.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075754/samples/man-on-a-street.jpg",
-  //   title: "SHARPEN YOUR MIND",
-  //   content:
-  //     "Our scientifically-designed courses help improve memory, focus, and cognitive function.",
-  //   buttonText: "Boost Your Brain",
-  //   buttonColor: "#FF5722",
-  //   buttonHoverColor: "#E64A19",
-  // },
-  // {
-  //   id: 10,
-  //   company: "GreenLife Skincare",
-  //   avatar: "https://github.com/greenlife.png",
-  //   avatarFallback: "GL",
-  //   description:
-  //     "Nourish your skin naturally with GreenLife Skincare. Organic, cruelty-free products for radiant skin.",
-  //   image:
-  //     "https://res.cloudinary.com/dyp8gtllq/image/upload/v1737075754/samples/look-up.jpg",
-  //   title: "GLOW NATURALLY",
-  //   content:
-  //     "Discover our range of plant-based cleansers, moisturizers, and serums.",
-  //   buttonText: "Reveal Your Glow",
-  //   buttonColor: "#795548",
-  //   buttonHoverColor: "#5D4037",
-  // },
 ];
 
 export default function SponsoredAd() {
@@ -224,4 +96,3 @@ export default function SponsoredAd() {
     </div>
   );
 }
-
