@@ -125,12 +125,16 @@ import { useState } from "react";
 import { supabase } from "@/utils/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useUser } from "@clerk/nextjs";
 
 interface CommentsProps {
   newsId: string;
 }
 
 export const Comments = ({ newsId }: CommentsProps) => {
+  const user = useUser();
+  const username = user && user.user ? user.user.fullName : "";
+
   interface Comment {
     id: string;
     news_id: string;
@@ -165,8 +169,9 @@ export const Comments = ({ newsId }: CommentsProps) => {
       const { data, error } = await supabase.from("comments").insert([
         {
           news_id: newsId,
-          author_name: "User", // Replace with actual user authentication
-          author_avatar: "/placeholder.svg?height=40&width=40", // Replace with actual user avatar
+          author_name: username,
+          author_avatar:
+            user.user?.imageUrl || "/placeholder.svg?height=40&width=40", // Replace with actual user avatar
           content,
         },
       ]);
