@@ -1,5 +1,4 @@
 import { MapPinCheck, Newspaper } from "lucide-react";
-import { FaConnectdevelop } from "react-icons/fa";
 
 import Link from "next/link";
 import React from "react";
