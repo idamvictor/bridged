@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import QueryProvider from "@/context/QueryProvider";
+import Footer from "@/components/Footer";
 
 // Define Poppins font with desired weights and subsets
 const poppins = Poppins({
@@ -31,6 +32,7 @@ export default function RootLayout({
             <div>
               <Header />
               {children}
+              <Footer />
             </div>
           </QueryProvider>
         </body>
