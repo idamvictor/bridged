@@ -29,7 +29,7 @@
 //   const [showSuggestions, setShowSuggestions] = useState(false); // Controls whether suggestions dropdown is visible
 //   const [recentSearches, setRecentSearches] = useState<string[]>([]); // Stores recent search history
 
-//   const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
+//   const API_KEY = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // Replace with your actual API key
 
 //   // Load recent searches from local storage on component mount
 //   useEffect(() => {
@@ -271,7 +271,7 @@
 //     longitude: number;
 //   } | null>(null);
 
-//   const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r";
+//   const API_KEY = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw";
 
 //   useEffect(() => {
 //     const savedSearches = localStorage.getItem("recentSearches");
@@ -521,7 +521,7 @@ export default function SearchBar({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
 
-  const API_KEY = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r";
+  const API_KEY = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw";
 
   useEffect(() => {
     const savedSearches = localStorage.getItem("recentSearches");

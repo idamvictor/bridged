@@ -14,7 +14,8 @@ const ads = [
     description:
       "We drive impactful healthcare research globally, addressing critical health challenges to improve patient care and public health outcomes.",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479686/WhatsApp_Image_2025-02-20_at_05.21.54_e1ae7d36_cydern.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479702/WhatsApp_Image_2025-02-20_at_05.31.57_7b047e3d_pdshor.jpg",
+
     title: "BRIDGED CENTER FOR IMPACT",
     content:
       "Join us on a journey where innovation meets purpose, and together, we create a future defined by positive and lasting interconnected healthcare",
@@ -31,7 +32,7 @@ const ads = [
     description:
       "Skills development, behaviour change and policy implementation · Impact training and organisational culture change · International Research Training",
     image:
-      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479702/WhatsApp_Image_2025-02-20_at_05.31.57_7b047e3d_pdshor.jpg",
+      "https://res.cloudinary.com/dyp8gtllq/image/upload/v1740479686/WhatsApp_Image_2025-02-20_at_05.21.54_e1ae7d36_cydern.jpg",
     title: "LEARN: BRIDGED CENTER FOR IMPACT",
     content:
       "Embark on a Journey of Knowledge and Skill-Building. Explore Our Diverse Range of Courses Tailored for Your Success.",

@@ -38,7 +38,7 @@
 // }
 
 // export function MapPlaceholder() {
-//   const apiKey = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // 🔹 Replace with your actual API key
+//   const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // 🔹 Replace with your actual API key
 
 //   useEffect(() => {
 //     function initMap() {
@@ -86,9 +86,76 @@
 //   );
 // }
 
+// "use client";
+
+// import React, { useEffect } from "react";
+
+// declare global {
+//   interface Window {
+//     google?: any;
+//     initMap?: () => void;
+//   }
+// }
+
+// interface MapPlaceholderProps {
+//   selectedCoords: { latitude: number; longitude: number } | null;
+// }
+
+// export function MapPlaceholder({ selectedCoords }: MapPlaceholderProps) {
+//   const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // Replace with your actual API key
+
+//   useEffect(() => {
+//     function initMap() {
+//       if (!window.google || !window.google.maps) return;
+
+//       const map = new window.google.maps.Map(
+//         document.getElementById("map") as HTMLElement,
+//         {
+//           center: selectedCoords
+//             ? { lat: selectedCoords.latitude, lng: selectedCoords.longitude }
+//             : { lat: 37.7749, lng: -122.4194 }, // Default to San Francisco
+//           zoom: 12,
+//         }
+//       );
+
+//       new window.google.maps.Marker({
+//         position: selectedCoords
+//           ? { lat: selectedCoords.latitude, lng: selectedCoords.longitude }
+//           : { lat: 37.7749, lng: -122.4194 },
+//         map,
+//         title: "Selected Location",
+//       });
+//     }
+
+//     if (window.google && window.google.maps) {
+//       initMap();
+//       return;
+//     }
+
+//     window.initMap = initMap;
+
+//     const script = document.createElement("script");
+//     script.src = `https://maps.gomaps.pro/maps/api/js?key=${apiKey}&callback=initMap`;
+//     script.async = true;
+//     script.defer = true;
+//     document.head.appendChild(script);
+
+//     return () => {
+//       document.head.removeChild(script);
+//     };
+//   }, [selectedCoords]); // 🔹 Re-run if `selectedCoords` changes
+
+//   return (
+//     <div className="relative w-full h-[400px] bg-muted rounded-xl overflow-hidden">
+//       <div id="map" className="absolute inset-0 w-full h-full"></div>
+//     </div>
+//   );
+// }
+
 "use client";
 
 import React, { useEffect } from "react";
+import Script from "next/script";
 
 declare global {
   interface Window {
@@ -102,7 +169,7 @@ interface MapPlaceholderProps {
 }
 
 export function MapPlaceholder({ selectedCoords }: MapPlaceholderProps) {
-  const apiKey = "AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r"; // Replace with your actual API key
+  const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // Replace with your actual API key
 
   useEffect(() => {
     function initMap() {
@@ -133,20 +200,14 @@ export function MapPlaceholder({ selectedCoords }: MapPlaceholderProps) {
     }
 
     window.initMap = initMap;
-
-    const script = document.createElement("script");
-    script.src = `https://maps.gomaps.pro/maps/api/js?key=${apiKey}&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
   }, [selectedCoords]); // 🔹 Re-run if `selectedCoords` changes
 
   return (
     <div className="relative w-full h-[400px] bg-muted rounded-xl overflow-hidden">
+      <Script
+        src={`https://maps.gomaps.pro/maps/api/js?key=${apiKey}&callback=initMap`}
+        strategy="afterInteractive"
+      />
       <div id="map" className="absolute inset-0 w-full h-full"></div>
     </div>
   );

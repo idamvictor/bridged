@@ -40,7 +40,7 @@ export function ResultsList({ userLocation }: ResultsListProps) {
 
       try {
         const response = await fetch(
-          `https://maps.gomaps.pro/maps/api/place/nearbysearch/json?location=${userLocation?.latitude},${userLocation?.longitude}&radius=5000&type=hospital&key=AlzaSyMySEr8nzz3xQ2eTnf-mtFRj2Fh6mqf83r`
+          `https://maps.gomaps.pro/maps/api/place/nearbysearch/json?location=${userLocation?.latitude},${userLocation?.longitude}&radius=5000&type=hospital&key=AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw`
         );
         const data = await response.json();
 
