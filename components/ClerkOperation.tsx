@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ClerkOperation() {
   return (
-    <div>
+    <div className="flex items-center space-x-4">
       {" "}
       <SignedOut>
         <Link href="/sign-in">
@@ -14,7 +14,7 @@ export default function ClerkOperation() {
           </Button>
         </Link>
         <Link href="/sign-up">
-          <Button className="bg-[#d42ca7] text-white hover:bg-[#a5147e]">
+          <Button className="bg-[#d42ca7] text-white hover:bg-[#a5147e] hidden md:block">
             Sign Up
           </Button>
         </Link>
