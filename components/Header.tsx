@@ -76,10 +76,7 @@ export default function Header() {
 
   return (
     <>
-      <nav
-        className="flex h-16 items-center justify-between px-4 relative"
-        style={{ backgroundColor: "#e8f3f1" }}
-      >
+      <nav className="flex h-16 items-center justify-between px-4 relative">
         <HeaderNav />
         <Link href="/user" className="flex items-center">
           <Image
