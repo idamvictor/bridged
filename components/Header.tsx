@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input";
 import HeaderNav from "./header-nav";
 import ClerkOperation from "./ClerkOperation";
 import ThreeColLine from "./three-col-line";
-// import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const notifications = [
   {
@@ -45,13 +44,18 @@ export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const mobileSearchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(event.target as Node)
-      ) {
+      const target = event.target as Node;
+      // Don't close if clicking on the search ref or the mobile search input
+      const isClickInSearchRef =
+        searchRef.current && searchRef.current.contains(target);
+      const isClickInMobileSearch =
+        mobileSearchRef.current && mobileSearchRef.current.contains(target);
+
+      if (!isClickInSearchRef && !isClickInMobileSearch) {
         setShowSearch(false);
       }
     }
@@ -102,14 +106,7 @@ export default function Header() {
               className={`absolute right-0 top-full mt-2 transition-all duration-300 ease-in-out ${
                 showSearch ? "opacity-100 visible" : "opacity-0 invisible"
               } md:right-0 md:top-0 md:mt-0`}
-            >
-              <Input
-                ref={inputRef}
-                type="search"
-                placeholder="Search..."
-                className="h-9 rounded-full bg-white pr-8 md:w-64"
-              />
-            </div>
+            ></div>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -155,6 +152,7 @@ export default function Header() {
         </div>
       </nav>
       <div
+        ref={mobileSearchRef}
         className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           showSearch ? "max-h-16" : "max-h-0"
         }`}
