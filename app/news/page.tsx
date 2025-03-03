@@ -74,23 +74,8 @@ export default function HomePage() {
             ))}
           </Tabs>
           <div className="flex items-center justify-center gap-2 mt-8">
-            <Button variant="outline" className="border-[#d42ca7]">
-              Prev
-            </Button>
             <Button variant="outline" className="bg-[#d42ca7] text-white">
               1
-            </Button>
-            <Button variant="outline" className="border-[#d42ca7]">
-              2
-            </Button>
-            <Button variant="outline" className="border-[#d42ca7]">
-              ...
-            </Button>
-            <Button variant="outline" className="border-[#d42ca7]">
-              15
-            </Button>
-            <Button variant="outline" className="border-[#d42ca7]">
-              Next
             </Button>
           </div>
         </div>
