@@ -264,24 +264,23 @@ export default function Header() {
     <>
       <nav className="flex h-16 items-center justify-between px-4 relative">
         <HeaderNav />
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden h-9 w-9">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="p-0 w-[300px]">
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigation Menu</SheetTitle>
+            </SheetHeader>
+            <div className="h-full overflow-y-auto">
+              <UserSidebar />
+            </div>
+          </SheetContent>
+        </Sheet>
         <div className="flex items-center gap-2">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden h-9 w-9">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="p-0 w-[300px]">
-              <SheetHeader className="sr-only">
-                <SheetTitle>Navigation Menu</SheetTitle>
-              </SheetHeader>
-              <div className="h-full overflow-y-auto">
-                <UserSidebar />
-                <p>wetin dey worry this thing</p>
-              </div>
-            </SheetContent>
-          </Sheet>
           <Link href="/user" className="flex items-center">
             <Image
               src="/logo.png"

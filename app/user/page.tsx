@@ -6,7 +6,9 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="max-w-7xl mx-auto grid-col-1 grid md:grid-cols-[240px_1fr_300px] gap-6 py-6">
-        <UserSidebar />
+        <div className="hidden md:block">
+          <UserSidebar />
+        </div>
 
         <div className="space-y-6">
           <SocialMediaApp />
