@@ -1,16 +1,26 @@
+"use client";
+
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { useUser } from "@clerk/nextjs"; // Import Clerk's user hook
+import { getInitials } from "../utils/getInitials"; // Import utility function
 
 export default function UserSidebar() {
+  const { user } = useUser(); // Get the authenticated user
+
+  // Extract user details
+  const userName = user?.fullName || "User";
+  const avatarUrl = user?.imageUrl || "";
+
   return (
     <div className="bg-white rounded-lg border p-6 h-[520px] hidden md:block">
       <div className="flex flex-col items-center text-center">
         <Avatar className="mb-2 w-12 h-12">
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarImage src={avatarUrl} />
+          <AvatarFallback>{getInitials(userName)}</AvatarFallback>
         </Avatar>
-        <h2 className="font-semibold">Albert Attom</h2>
-        <div className="flex gap-4 mt-3 text-sm text-gray-600">
+        <h2 className="font-semibold">{userName}</h2>
+        {/* <div className="flex gap-4 mt-3 text-sm text-gray-600">
           <div className="flex flex-col items-center">
             <span className="font-semibold">1</span>
             <span>Post</span>
@@ -23,7 +33,7 @@ export default function UserSidebar() {
             <span className="font-semibold">0</span>
             <span>Following</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="mt-8 space-y-2">

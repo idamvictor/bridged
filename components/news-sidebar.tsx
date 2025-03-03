@@ -1,40 +1,40 @@
+"use client";
+import { supabase } from "@/utils/supabase/client";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function NewsSidebar() {
-  const news = [
-    {
-      id: 1,
-      title: "Fitness for All: How to Exercise Effectively for Your Body Type",
-      date: "2min",
-      image:
-        "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222540/DG_20shakes_20with_20HE_0_rnwtwq.jpg",
+  // Fetch news data using React Query
+  const {
+    data: news = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["news"], // Query key as an array
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("news_brief")
+        .select("*")
+        .order("date", { ascending: false }) // Fetch data sorted by date
+        .limit(5); // Limit the results to 5 items
+
+      if (error) {
+        throw new Error(error.message); // Handle errors
+      }
+      return data; // Return fetched data
     },
-    {
-      id: 2,
-      title:
-        "Aging Well: Tips for Staying Healthy and Active in Your Golden Years",
-      date: "15min",
-      image:
-        "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222540/DG_20shakes_20with_20HE_0_rnwtwq.jpg",
-    },
-    {
-      id: 3,
-      title:
-        "Navigating Health Insurance: What You Need to Know to Make Informed Choices",
-      date: "25min",
-      image:
-        "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739222257/For_20banner_cr9sav.jpg",
-    },
-    {
-      id: 4,
-      title:
-        "Managing Chronic Illness: Strategies for Living Well with a Health Condition",
-      date: "45min",
-      image:
-        "https://res.cloudinary.com/dyp8gtllq/image/upload/v1739221074/Video_3_de9uyn.jpg",
-    },
-  ];
+  });
+
+  // Loading state
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // Error state
+  if (isError) {
+    return <div>Error fetching news. Please try again later.</div>;
+  }
 
   return (
     <div className="bg-white rounded-lg border p-4">
@@ -44,7 +44,7 @@ export default function NewsSidebar() {
           <div key={item.id}>
             <Link href={`/news/${item.id}`} className="flex gap-3">
               <Image
-                src={item.image || "/placeholder.svg"}
+                src={item.image || "/placeholder.svg"} // Fallback image if none is provided
                 alt={item.title}
                 width={48}
                 height={48}
@@ -52,7 +52,7 @@ export default function NewsSidebar() {
               />
               <div>
                 <p className="text-sm">{item.title}</p>
-                <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+                <p className="text-xs text-gray-500 mt-1">{item.read_time}</p>
               </div>
             </Link>
           </div>
