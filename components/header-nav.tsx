@@ -7,9 +7,11 @@ import ThreeColLine from "./three-col-line";
 
 export default function HeaderNav() {
   return (
-    <div className=" space-x-8 fixed bottom-0 left-0 right-0 bg-[#e8f3f1] md:bg-white z-10 md:static">
-      <ThreeColLine />
-      <div className="flex items-center justify-around  h-16">
+    <div className="fixed bottom-0 left-0 right-0 bg-[#e8f3f1] md:bg-white z-10 md:static">
+      <div className="md:hidden">
+        <ThreeColLine />
+      </div>
+      <div className="flex items-center justify-around  h-16 space-x-8">
         <Link
           href="/news"
           className="text-sm font-medium flex flex-col items-center"
