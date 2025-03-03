@@ -9,7 +9,7 @@ export default function ClerkOperation() {
       {" "}
       <SignedOut>
         <Link href="/sign-in">
-          <Button className="bg-[#d42ca7] text-white hover:bg-[#a5147e]">
+          <Button className="" variant={"ghost"}>
             Sign In
           </Button>
         </Link>
