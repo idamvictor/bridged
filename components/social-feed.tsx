@@ -42,6 +42,7 @@ export function SocialFeed({
 }: SocialFeedProps) {
   const user = useUser();
   const username = user && user.user ? user.user.fullName : "";
+  const avatar = user && user.user ? user.user.imageUrl : "";
 
   const [commentingPostId, setCommentingPostId] = useState<string | null>(null);
   const [newComment, setNewComment] = useState("");
@@ -166,7 +167,7 @@ export function SocialFeed({
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <Avatar className="w-8 h-8">
-                    <AvatarImage src={author.avatar} />
+                    <AvatarImage src={post.author_avatar} />
                     <AvatarFallback>
                       {(post.author_name ?? author.name)
                         .substring(0, 2)
@@ -279,16 +280,13 @@ export function SocialFeed({
                 <div className="flex items-start space-x-2 mb-4">
                   <Avatar className="w-8 h-8">
                     <AvatarImage
-                      src={
-                        postCommentsArray[0]?.author_avatar ||
-                        currentUser.avatar
-                      }
+                      src={avatar || postCommentsArray[0]?.author_avatar}
                     />
                     <AvatarFallback>
                       {(
                         postCommentsArray[0]?.author_avatar ||
                         postCommentsArray[0]?.author_name ||
-                        currentUser.name
+                        avatar
                       )
                         .substring(0, 2)
                         .toUpperCase()}

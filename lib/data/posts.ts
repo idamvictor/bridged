@@ -8,6 +8,7 @@ export interface Post {
   timestamp: string;
   sponsored?: boolean;
   author_name?: string | null;
+  author_avatar?: string | undefined;
 }
 
 export async function getPosts(): Promise<Post[]> {

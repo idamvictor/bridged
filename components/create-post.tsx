@@ -30,8 +30,11 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
   const [postImage, setPostImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // console.log(currentUser);
+
   const user = useUser();
   const username = user && user.user ? user.user.fullName : "";
+  const avatar = user && user.user ? user.user.imageUrl : "";
 
   const handlePostSubmit = async () => {
     if (postContent.trim() || postImage) {
@@ -61,6 +64,7 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
         author_name: username,
         content: postContent,
         image_url: imageUrl,
+        author_avatar: avatar,
       });
 
       if (newPost) {
@@ -94,7 +98,7 @@ export function CreatePost({ onPostCreated, currentUser }: CreatePostProps) {
       <CardContent className="p-4 space-y-4">
         <div className="flex gap-3">
           <Avatar>
-            <AvatarImage src={currentUser.avatar} />
+            <AvatarImage src={avatar || currentUser.avatar} />
             <AvatarFallback>
               {(username ?? currentUser.name).substring(0, 2).toUpperCase()}
             </AvatarFallback>

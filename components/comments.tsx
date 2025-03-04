@@ -170,8 +170,7 @@ export const Comments = ({ newsId }: CommentsProps) => {
         {
           news_id: newsId,
           author_name: username,
-          author_avatar:
-            user.user?.imageUrl || "/placeholder.svg?height=40&width=40", // Replace with actual user avatar
+          author_avatar: user.user?.imageUrl, // Replace with actual user avatar
           content,
         },
       ]);
