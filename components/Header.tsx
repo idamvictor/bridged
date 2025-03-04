@@ -288,6 +288,7 @@ export default function Header() {
               width={60}
               height={40}
               priority
+              className="mt-3 w-[50px] h-[40px] md:w-[60px] md:h-[50px]"
             />
           </Link>
         </div>
