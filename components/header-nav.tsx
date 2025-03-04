@@ -7,7 +7,7 @@ import ThreeColLine from "./three-col-line";
 
 export default function HeaderNav() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#e8f3f1] md:bg-white z-10 md:static">
+    <div className="fixed bottom-0 left-0 right-0 bg-white z-10 md:static">
       <div className="md:hidden">
         <ThreeColLine />
       </div>
