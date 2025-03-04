@@ -1,8 +1,7 @@
-import { MapPinCheck, Newspaper } from "lucide-react";
+import { MapPinCheck, Newspaper, RadioTower } from "lucide-react";
 
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 import ThreeColLine from "./three-col-line";
 
 export default function HeaderNav() {
@@ -22,12 +21,7 @@ export default function HeaderNav() {
           href="/groups"
           className="text-sm font-medium flex flex-col items-center"
         >
-          <Image
-            src="/Interconnectivity.svg"
-            width={23}
-            height={23}
-            alt="Groups"
-          />
+          <RadioTower size={20} />
           Interconnectivity
         </Link>
         <Link
