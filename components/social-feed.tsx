@@ -26,6 +26,13 @@ import { getComments, createComment } from "@/lib/data/comments";
 import { getLikes, toggleLike } from "@/lib/data/likes";
 import { deletePost } from "@/lib/data/posts";
 import { useUser } from "@clerk/nextjs";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  InstapaperShareButton,
+} from "react-share";
 
 interface SocialFeedProps {
   posts: Post[];
@@ -129,10 +136,10 @@ export function SocialFeed({
     }
   };
 
-  const handleShare = (postId: string, platform?: string) => {
-    // Placeholder for share functionality
-    alert(`Sharing post ${postId} on ${platform}`);
-  };
+  // const handleShare = (postId: string, platform?: string) => {
+  //   // Placeholder for share functionality
+  //   alert(`Sharing post ${postId} on ${platform}`);
+  // };
 
   const handleDelete = async (postId: string) => {
     const success = await deletePost(postId);
@@ -252,24 +259,35 @@ export function SocialFeed({
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem
-                    onClick={() => handleShare(post.id, "facebook")}
+                  // onClick={() => handleShare(post.id, "facebook")}
                   >
-                    Facebook
+                    <FacebookShareButton url="https://connect.bridgedimpact.com/">
+                      Facebook
+                    </FacebookShareButton>
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => handleShare(post.id, "twitter")}
+                  // onClick={() => handleShare(post.id, "twitter")}
                   >
-                    Twitter
+                    <TwitterShareButton url="https://connect.bridgedimpact.com/">
+                      Twitter
+                    </TwitterShareButton>
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => handleShare(post.id, "linkedin")}
+                  // onClick={() => handleShare(post.id, "linkedin")}
                   >
-                    LinkedIn
+                    <LinkedinShareButton url="https://connect.bridgedimpact.com/">
+                      LinkedIn
+                    </LinkedinShareButton>
                   </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => handleShare(post.id, "copy")}
-                  >
-                    Copy Link
+                  <DropdownMenuItem>
+                    <WhatsappShareButton url="https://connect.bridgedimpact.com/">
+                      Whatsapp
+                    </WhatsappShareButton>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <InstapaperShareButton url="https://connect.bridgedimpact.com/">
+                      Instagram
+                    </InstapaperShareButton>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
