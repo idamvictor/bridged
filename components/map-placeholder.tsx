@@ -38,7 +38,7 @@
 // }
 
 // export function MapPlaceholder() {
-//   const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // 🔹 Replace with your actual API key
+//   const apiKey = "AlzaSyufDCg7v8KEmwZ_jDadXH8kxfdt1yDjrcO"; // 🔹 Replace with your actual API key
 
 //   useEffect(() => {
 //     function initMap() {
@@ -102,7 +102,7 @@
 // }
 
 // export function MapPlaceholder({ selectedCoords }: MapPlaceholderProps) {
-//   const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // Replace with your actual API key
+//   const apiKey = "AlzaSyufDCg7v8KEmwZ_jDadXH8kxfdt1yDjrcO"; // Replace with your actual API key
 
 //   useEffect(() => {
 //     function initMap() {
@@ -169,7 +169,7 @@ interface MapPlaceholderProps {
 }
 
 export function MapPlaceholder({ selectedCoords }: MapPlaceholderProps) {
-  const apiKey = "AlzaSy9ZftUvE_vnjzYS2Xdp76aT3N8GqIKB3jw"; // Replace with your actual API key
+  const apiKey = "AlzaSyufDCg7v8KEmwZ_jDadXH8kxfdt1yDjrcO"; // Replace with your actual API key
 
   useEffect(() => {
     function initMap() {
