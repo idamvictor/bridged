@@ -1,4 +1,4 @@
-import { MapPinCheck, Newspaper, RadioTower } from "lucide-react";
+import { GitCompareArrows, MapPinCheck, Newspaper } from "lucide-react";
 
 import Link from "next/link";
 import React from "react";
@@ -21,7 +21,9 @@ export default function HeaderNav() {
           href="/groups"
           className="text-sm font-medium flex flex-col items-center"
         >
-          <RadioTower size={20} />
+          {/* <RadioTower size={20} /> */}
+          {/* <RefreshCcwDot size={20} /> */}
+          <GitCompareArrows size={20} />
           Interconnectivity
         </Link>
         <Link
