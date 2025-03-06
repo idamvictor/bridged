@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bell, Search, Menu } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Search, Menu } from "lucide-react";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -24,29 +24,29 @@ import ClerkOperation from "./ClerkOperation";
 import ThreeColLine from "./three-col-line";
 import UserSidebar from "./user-sidebar";
 
-const notifications = [
-  {
-    id: 1,
-    title: "New message received",
-    description: "You have a new message from John Doe",
-    time: "5 min ago",
-    unread: true,
-  },
-  {
-    id: 2,
-    title: "Appointment confirmed",
-    description: "Your appointment has been confirmed",
-    time: "1 hour ago",
-    unread: true,
-  },
-  {
-    id: 3,
-    title: "System update",
-    description: "System maintenance scheduled for tonight",
-    time: "2 hours ago",
-    unread: false,
-  },
-];
+// const notifications = [
+//   {
+//     id: 1,
+//     title: "New message received",
+//     description: "You have a new message from John Doe",
+//     time: "5 min ago",
+//     unread: true,
+//   },
+//   {
+//     id: 2,
+//     title: "Appointment confirmed",
+//     description: "Your appointment has been confirmed",
+//     time: "1 hour ago",
+//     unread: true,
+//   },
+//   {
+//     id: 3,
+//     title: "System update",
+//     description: "System maintenance scheduled for tonight",
+//     time: "2 hours ago",
+//     unread: false,
+//   },
+// ];
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
@@ -115,7 +115,7 @@ export default function Header() {
               width={60}
               height={40}
               priority
-              className="mt-3 w-[50px] h-[40px] md:w-[60px] md:h-[50px]"
+              className="mt-3 w-[50px] h-[40px] md:w-[60px] md:h-[50px] ml-11"
             />
           </Link>
         </div>
@@ -135,7 +135,9 @@ export default function Header() {
               } md:right-0 md:top-0 md:mt-0`}
             ></div>
           </div>
-          <DropdownMenu>
+
+          {/* Notification Dropdown */}
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <Bell className="h-4 w-4" />
@@ -173,7 +175,7 @@ export default function Header() {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           {isClient && <ClerkOperation />}
         </div>
