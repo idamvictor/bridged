@@ -110,7 +110,7 @@ export function AppSidebar() {
 
           <div className="mt-8 space-y-2 text-sm">
             <button className="text-purple-600 hover:underline">
-              Account Settings
+              <Link href="/settings">Account Settings</Link>
             </button>
             <div className="flex gap-2 text-gray-500">
               <button className="hover:underline">About</button>
