@@ -1,6 +1,7 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 
 export async function POST(req: Request) {
   const SIGNING_SECRET = process.env.WEBHOOK_SECRET; // Changed from NEXT_PUBLIC_SIGNING_SECRET
@@ -57,8 +58,14 @@ export async function POST(req: Request) {
     // console.log("New user data:", evt.data);
 
     // TODO: Add WordPress user creation logic here
+    const user = await currentUser();
 
-    const username = (evt.data.username || evt.data.id)
+    const username = (
+      evt.data.username ||
+      user?.username ||
+      evt.data.email_addresses?.[0]?.email_address ||
+      ""
+    )
       .replace(/\s+/g, "")
       .toLowerCase();
     const email = evt.data.email_addresses?.[0]?.email_address || "";
